@@ -695,7 +695,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1534481867}
+      - m_Target: {fileID: 1534481869}
         m_TargetAssemblyTypeName: GameScene1Load, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 1
@@ -705,7 +705,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &255469207
 MonoBehaviour:
@@ -755,6 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276155474}
   - component: {fileID: 276155473}
+  - component: {fileID: 276155475}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Untagged
@@ -788,6 +789,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276155475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276155472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef677edcc1c1fa4ea68f6b8dd51068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285120033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366623834}
   - component: {fileID: 366623833}
+  - component: {fileID: 366623835}
   m_Layer: 0
   m_Name: GameObject (3)
   m_TagString: Untagged
@@ -1097,6 +1111,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366623835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366623832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c790c3e9cf4404c811ccb98a58a1be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377384745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,6 +1967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824805950}
   - component: {fileID: 824805949}
+  - component: {fileID: 824805951}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -1974,6 +2001,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &824805951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824805948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb45b94b7b27614fba90604b60658e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876170732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,7 +2096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 276155473}
+      - m_Target: {fileID: 276155475}
         m_TargetAssemblyTypeName: GameScene3Load, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 1
@@ -2318,7 +2357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 63fb4bd5c1b95ad4faa1f9a0c41f8741, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 469d81499744f5f499b85c889e3ab3c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3172,6 +3211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1534481868}
   - component: {fileID: 1534481867}
+  - component: {fileID: 1534481869}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3205,6 +3245,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534481869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534481866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73ceab6b1dc8d14d9d42ea15c077a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1535325144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,7 +3552,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 824805949}
+      - m_Target: {fileID: 824805951}
         m_TargetAssemblyTypeName: GameScene2Load, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 1
@@ -3870,7 +3922,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 366623833}
+      - m_Target: {fileID: 366623835}
         m_TargetAssemblyTypeName: GameScene4Load, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 1
