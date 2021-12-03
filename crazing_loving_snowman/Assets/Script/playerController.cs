@@ -7,13 +7,15 @@ public class playerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private Transform playerTrans;
     private SpriteRenderer playerRender;
+    public bool gameOver;
     public float hp;
-    public float pos;
+    private float pos;
     public bool Dmg;
     public float interval;
     public bool vis;
-    public int Lvalue;
-    public int Rvalue;
+    private int Lvalue;
+    private int Rvalue;
+    private float maxSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,28 +23,43 @@ public class playerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerTrans = GetComponent<Transform>();
         playerRender = GetComponent<SpriteRenderer>();
+        gameOver = false;
         hp = 1;
         pos = playerTrans.position.x;
         interval = 1;
         vis = true;
         Lvalue = 0;
         Rvalue = 0;
+        maxSpeed = 10;
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerRigidbody.velocity.x <= maxSpeed)
+        {
+            float zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
+            playerRigidbody.AddForce(new Vector2(zInput, 0));
+        }
         
-        float zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
-        playerRigidbody.AddForce(new Vector2(zInput, 0));
-
-    
         if (Dmg == true)
         {
             invisible();
         }
         playerScale();
+
+        if (hp <=0)
+        {
+            GameOver();
+        }
+
+        if (hp > 100)
+        {
+            hp = 100;
+        }
+               
 
     }
 
@@ -74,7 +91,7 @@ public class playerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            if (hp != 100)
+            if (hp <= 100)
             {
                 if (playerTrans.position.x - pos > 1)
                 {
@@ -89,11 +106,15 @@ public class playerController : MonoBehaviour
 
             }
                 
-        }
-
-
-            
+        }        
     }
+
+    private void GameOver()
+    {
+        gameObject.SetActive(false);
+        gameOver = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "dmgTrap")
