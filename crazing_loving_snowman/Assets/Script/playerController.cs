@@ -7,6 +7,8 @@ public class playerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private Transform playerTrans;
     private SpriteRenderer playerRender;
+    public GameObject FinishPanel;
+    public GameObject UIPanel;
     public GameObject gameover;
     public bool gameOver;
     public float hp;
@@ -217,7 +219,16 @@ public class playerController : MonoBehaviour
             }
         }
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            UIPanel.SetActive(false);
+            FinishPanel.SetActive(true);
+
+        }
+
+    }
 
 }
 
