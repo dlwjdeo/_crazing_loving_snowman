@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private Transform playerTrans;
     private SpriteRenderer playerRender;
+    public GameObject gameover;
     public bool gameOver;
     public float hp;
     private float pos;
@@ -112,13 +113,15 @@ public class playerController : MonoBehaviour
     private void GameOver()
     {
         gameObject.SetActive(false);
-        gameOver = true;
+        gameover.SetActive(true);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "dmgTrap")
         {
+            GameOver();
             onDamage();
             Invoke("unDamage", 3);
 
