@@ -126,15 +126,22 @@ public class playerController : MonoBehaviour
             GameOver();
             onDamage();
             Invoke("unDamage", 3);
+        }
+    }
 
-            if(collision.gameObject.name == "wRabbit")
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "dmgTrap")
+        {
+            onDamage();
+            Invoke("unDamage", 3);
+
+            if (collision.gameObject.name == "wRabbit")
             {
                 bounce(collision.transform.position);
             }
         }
     }
-
-
     private void playerScale()
     {
         if (hp < 24)
