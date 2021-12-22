@@ -15150,6 +15150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832747668}
   - component: {fileID: 1832747667}
+  - component: {fileID: 1832747669}
   - component: {fileID: 1832747666}
   - component: {fileID: 1832747665}
   m_Layer: 6
@@ -15265,13 +15266,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832747664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -6.45, z: 0}
+  m_LocalPosition: {x: 13.13, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 13832265}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1832747669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832747664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f270b7f8681f94c9a0d587b3c482a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextMove: 2
+  h: 10
+  rabbitSpeed: 0
+  speed: 1
+  rabbitJumpCount: 2
 --- !u!1 &1835327168
 GameObject:
   m_ObjectHideFlags: 0
