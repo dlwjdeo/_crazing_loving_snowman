@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class playerController : MonoBehaviour
     public GameObject FinishPanel;
     public GameObject UIPanel;
     public GameObject gameover;
+    public Image FacePanelEye;
+    public Image FacePanelNose;
+    public Image FacePanelMouse;
     public bool gameOver;
     public float hp;
     private float pos;
@@ -19,6 +23,9 @@ public class playerController : MonoBehaviour
     private int Lvalue;
     private int Rvalue;
     private float maxSpeed;
+    private bool eye;
+    private bool nose;
+    private bool mouse;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +41,9 @@ public class playerController : MonoBehaviour
         Lvalue = 0;
         Rvalue = 0;
         maxSpeed = 10;
+        eye = false;
+        nose = false;
+        mouse = false;
 
 
     }
@@ -123,7 +133,6 @@ public class playerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "dmgTrap")
         {
-            GameOver();
             onDamage();
             Invoke("unDamage", 3);
         }
@@ -140,6 +149,37 @@ public class playerController : MonoBehaviour
             {
                 bounce(collision.transform.position);
             }
+        }
+
+        if (collision.gameObject.tag == "Finish")
+        {
+            UIPanel.SetActive(false);
+            FinishPanel.SetActive(true);
+
+        }
+
+        if (collision.gameObject.name == "eRabbit")
+        {
+            int randomFace = Random.Range(1, 3);
+            loseFace(randomFace);
+        }
+
+        if (collision.gameObject.tag == "Eye")
+        {
+            FacePanelEye.color = new Color(1, 1, 1, 1);
+            eye = true;
+        }
+
+        if (collision.gameObject.tag == "Nose")
+        {
+            FacePanelNose.color = new Color(1, 1, 1, 1);
+            nose = true;
+        }
+
+        if (collision.gameObject.tag == "Mouse")
+        {
+            FacePanelMouse.color = new Color(1, 1, 1, 1);
+            mouse = true;
         }
     }
     private void playerScale()
@@ -171,6 +211,49 @@ public class playerController : MonoBehaviour
         }
     }
 
+    private void loseFace(int face)
+    {
+        if (face == 1)
+        {
+            if (eye)
+            {
+                FacePanelEye.color = new Color(1, 1, 1, 0.4f);
+                eye = false;
+            }
+            else
+            {
+                loseFace(2);
+            }
+
+        }
+
+        if (face == 2)
+        {
+            if (nose)
+            {
+                FacePanelNose.color = new Color(1, 1, 1, 0.4f);
+                nose = false;
+            }
+            else
+            {
+                loseFace(3);
+            }
+        }
+
+        if (face == 3)
+        {
+            if (mouse)
+            {
+                FacePanelMouse.color = new Color(1, 1, 1, 0.4f);
+                mouse = false;
+            }
+            else
+            {
+                loseFace(1);
+            }
+
+        }
+    }
     private void onDamage()
     {
         gameObject.layer = 7;
@@ -226,16 +309,7 @@ public class playerController : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Finish")
-        {
-            UIPanel.SetActive(false);
-            FinishPanel.SetActive(true);
 
-        }
-
-    }
 
 }
 
