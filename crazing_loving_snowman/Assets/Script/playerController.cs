@@ -26,6 +26,7 @@ public class playerController : MonoBehaviour
     private bool eye;
     private bool nose;
     private bool mouse;
+    private bool movement;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class playerController : MonoBehaviour
         eye = false;
         nose = false;
         mouse = false;
+        movement = true;
 
 
     }
@@ -51,12 +53,16 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerRigidbody.velocity.x <= maxSpeed)
+        if (movement)
         {
-            float zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
-            playerRigidbody.AddForce(new Vector2(zInput, 0));
+            if (playerRigidbody.velocity.x <= maxSpeed)
+            {
+                float zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
+                playerRigidbody.AddForce(new Vector2(zInput, 0));
+            }
+
         }
-        
+
         if (Dmg == true)
         {
             invisible();
@@ -156,6 +162,21 @@ public class playerController : MonoBehaviour
             UIPanel.SetActive(false);
             FinishPanel.SetActive(true);
 
+        }
+
+        if (collision.gameObject.name == "snowduck")
+        {
+            int tmpTime += Time.deltaTime;
+
+            movement = false;
+            playerRigidbody.velocity = new Vector2(0, 0);
+            playerRender.color = new Color(1, 1, 1, 0);
+
+            if (tmpTime >= 1.5f)
+            {
+                movement = true;
+                playerRender.color = new Color(1, 1, 1, 1);
+            }
         }
 
         if (collision.gameObject.name == "eRabbit")
