@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour
     private bool nose;
     private bool mouse;
     private bool movement;
-
+    private float tmpTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -166,7 +166,7 @@ public class playerController : MonoBehaviour
 
         if (collision.gameObject.name == "snowduck")
         {
-            int tmpTime += Time.deltaTime;
+            tmpTime += Time.deltaTime;
 
             movement = false;
             playerRigidbody.velocity = new Vector2(0, 0);

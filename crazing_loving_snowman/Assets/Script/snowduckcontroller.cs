@@ -9,6 +9,7 @@ public class snowduckcontroller : MonoBehaviour
     private Animator sdAnimation;
     private CircleCollider2D sdCollider;
     private SpriteRenderer sdRender;
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class snowduckcontroller : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            int timer += Time.deltaTime;
+            timer += Time.deltaTime;
             sdAnimation.SetTrigger("coliision");
             if (timer <= 6.5f)
             {
