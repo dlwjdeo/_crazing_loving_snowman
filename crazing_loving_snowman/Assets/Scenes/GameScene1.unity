@@ -14617,6 +14617,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2105205971}
   speed: 0.4
+  stoppingDistance: 0
+  retreatDistance: 0
+  player: {fileID: 0}
 --- !u!212 &1374143631
 SpriteRenderer:
   m_ObjectHideFlags: 0
