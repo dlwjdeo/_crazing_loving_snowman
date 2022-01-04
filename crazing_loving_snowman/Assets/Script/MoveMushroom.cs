@@ -24,12 +24,5 @@ public class MoveMushroom : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
 
-        Vector2 bottomVec = new Vector2(rigid.position.x, rigid.position.y - 3);
-        Debug.DrawRay(bottomVec, Vector3.down, new Color(0, 255, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(bottomVec, Vector3.down, LayerMask.GetMask("Platform"));
-        if (rayHit.collider != null)
-        {
-
-        }
     }
 }
