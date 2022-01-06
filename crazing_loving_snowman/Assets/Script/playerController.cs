@@ -17,9 +17,9 @@ public class playerController : MonoBehaviour
     public bool gameOver;
     public float hp;
     private float pos;
-    public bool Dmg;
-    public float interval;
-    public bool vis;
+    private bool Dmg;
+    private float interval;
+    private bool vis;
     private int Lvalue;
     private int Rvalue;
     private float maxSpeed;
@@ -28,6 +28,9 @@ public class playerController : MonoBehaviour
     private bool mouse;
     private bool movement;
     private float tmpTime;
+    private float scale;
+    private float plusHp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,9 @@ public class playerController : MonoBehaviour
         nose = false;
         mouse = false;
         movement = true;
-
+        scale = 0.5f;
+        plusHp = 1;
+        
 
     }
 
@@ -114,12 +119,12 @@ public class playerController : MonoBehaviour
             {
                 if (playerTrans.position.x - pos > 1)
                 {
-                    hp = hp + 1;
+                    hp = hp + plusHp;
                     pos = playerTrans.position.x;
                 }
                 else if (playerTrans.position.x - pos < -1)
                 {
-                    hp = hp + 1;
+                    hp = hp + plusHp;
                     pos = playerTrans.position.x;
                 }
 
@@ -207,28 +212,28 @@ public class playerController : MonoBehaviour
     {
         if (hp < 24)
         {
-            playerTrans.localScale = new Vector2(1, 1);
-            playerRigidbody.mass = 1;
+            playerTrans.localScale = new Vector2(1 * scale, 1 * scale);
+            playerRigidbody.mass = 1 * scale;
         }          
         else if (hp < 49)
         {
-            playerTrans.localScale = new Vector2(1.2f, 1.2f);
-            playerRigidbody.mass = 1.2f;
+            playerTrans.localScale = new Vector2(1.2f * scale, 1.2f * scale);
+            playerRigidbody.mass = 1.2f * scale;
         }
         else if (hp < 74)
         {
-            playerTrans.localScale = new Vector2(1.5f, 1.5f);
-            playerRigidbody.mass = 1.5f;
+            playerTrans.localScale = new Vector2(1.5f * scale, 1.5f * scale);
+            playerRigidbody.mass = 1.5f * scale;
         }
         else if (hp < 99)
         {
-            playerTrans.localScale = new Vector2(1.8f, 1.8f);
-            playerRigidbody.mass = 1.8f;
+            playerTrans.localScale = new Vector2(1.8f * scale, 1.8f * scale);
+            playerRigidbody.mass = 1.8f * scale;
         }
         else if (hp >= 100)
         {
-            playerTrans.localScale = new Vector2(2, 2);
-            playerRigidbody.mass = 2;
+            playerTrans.localScale = new Vector2(2 * scale, 2 * scale);
+            playerRigidbody.mass = 2 * scale;
         }
     }
 
@@ -303,7 +308,7 @@ public class playerController : MonoBehaviour
         
         playerRender.color = new Color(1, 1, 1, interval);
 
-        if(vis == true)
+        if(vis)
         {
             if (interval < 0.5)
             {
