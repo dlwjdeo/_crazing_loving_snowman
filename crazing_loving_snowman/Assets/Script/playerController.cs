@@ -143,8 +143,6 @@ public class playerController : MonoBehaviour
 
         if (collision.gameObject.name == "Scoop")
         {
-            
-            
             movement = false;
         }
     }
@@ -162,11 +160,6 @@ public class playerController : MonoBehaviour
         {
             onDamage();
             Invoke("unDamage", 3);
-        }
-
-        if (collision.gameObject.name == "Scoop")
-        {
-            playerRigidbody.velocity = new Vector2(0, 0);
         }
     }
 
@@ -234,9 +227,9 @@ public class playerController : MonoBehaviour
     {
         if (collision.gameObject.name == "Scoop")
         {
-            
+            Scoop call = GameObject.Find("Scoop").GetComponent<Scoop>();
             movement = true;
-            
+            zInput = call.xForce;
 
         }
     }

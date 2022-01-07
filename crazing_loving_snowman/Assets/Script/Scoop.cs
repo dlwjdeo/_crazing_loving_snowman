@@ -10,13 +10,13 @@ public class Scoop : MonoBehaviour
     {
         playerController call = GameObject.Find("Player").GetComponent<playerController>();
         call.jumpPower = JumpForce;
-        Invoke("jump", 1f);
+        Wait();
+        call.scoopJump = true;
     }
 
 
-    private void jump()
+    IEnumerator Wait()
     {
-        playerController call = GameObject.Find("Player").GetComponent<playerController>();
-        call.scoopJump = true;
+        yield return new WaitForSeconds(1f);
     }
 }
