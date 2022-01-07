@@ -30,6 +30,9 @@ public class playerController : MonoBehaviour
     private float tmpTime;
     private float scale;
     private float plusHp;
+    private float zInput;
+    public float jumpPower;
+    public bool scoopJump;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +54,7 @@ public class playerController : MonoBehaviour
         movement = true;
         scale = 0.5f;
         plusHp = 1;
-        
+        scoopJump = false;
 
     }
 
@@ -62,10 +65,16 @@ public class playerController : MonoBehaviour
         {
             if (playerRigidbody.velocity.x <= maxSpeed)
             {
-                float zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
+                zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
                 playerRigidbody.AddForce(new Vector2(zInput, 0));
             }
 
+        }
+
+        if (scoopJump == true)
+        {
+            playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            scoopJump = false;
         }
 
         if (Dmg == true)
@@ -74,7 +83,7 @@ public class playerController : MonoBehaviour
         }
         playerScale();
 
-        if (hp <=0)
+        if (hp <= 0)
         {
             GameOver();
         }
@@ -83,7 +92,7 @@ public class playerController : MonoBehaviour
         {
             hp = 100;
         }
-               
+
 
     }
 
@@ -129,8 +138,13 @@ public class playerController : MonoBehaviour
                 }
 
             }
-                
-        }        
+
+        }
+
+        if (collision.gameObject.name == "Scoop")
+        {
+            movement = false;
+        }
     }
 
     private void GameOver()
@@ -208,13 +222,25 @@ public class playerController : MonoBehaviour
             mouse = true;
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Scoop")
+        {
+            Scoop call = GameObject.Find("Scoop").GetComponent<Scoop>();
+            movement = true;
+            zInput = call.xForce;
+
+        }
+    }
+
     private void playerScale()
     {
         if (hp < 24)
         {
             playerTrans.localScale = new Vector2(1 * scale, 1 * scale);
             playerRigidbody.mass = 1 * scale;
-        }          
+        }
         else if (hp < 49)
         {
             playerTrans.localScale = new Vector2(1.2f * scale, 1.2f * scale);
@@ -291,7 +317,7 @@ public class playerController : MonoBehaviour
     {
         int dirc = enemyPos.x - transform.position.x < 0 ? 1 : -1;
         playerRigidbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
-        
+
     }
 
     private void unDamage()
@@ -305,29 +331,29 @@ public class playerController : MonoBehaviour
 
     private void invisible()
     {
-        
+
         playerRender.color = new Color(1, 1, 1, interval);
 
-        if(vis)
+        if (vis)
         {
             if (interval < 0.5)
             {
                 vis = false;
-                
+
             }
             else
             {
                 interval -= Time.deltaTime;
 
             }
-                
+
         }
         else
         {
             if (interval > 1)
             {
                 vis = true;
-                
+
             }
             else
             {
