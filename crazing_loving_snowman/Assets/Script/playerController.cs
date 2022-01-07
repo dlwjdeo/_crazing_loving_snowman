@@ -30,9 +30,6 @@ public class playerController : MonoBehaviour
     private float tmpTime;
     private float scale;
     private float plusHp;
-    private float zInput;
-    public float jumpPower;
-    public bool scoopJump;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +51,7 @@ public class playerController : MonoBehaviour
         movement = true;
         scale = 0.5f;
         plusHp = 1;
-        scoopJump = false;
+        
 
     }
 
@@ -65,16 +62,10 @@ public class playerController : MonoBehaviour
         {
             if (playerRigidbody.velocity.x <= maxSpeed)
             {
-                zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
+                float zInput = Input.GetAxisRaw("Horizontal") + Lvalue + Rvalue;
                 playerRigidbody.AddForce(new Vector2(zInput, 0));
             }
 
-        }
-
-        if (scoopJump == true)
-        {
-            playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            scoopJump = false;
         }
 
         if (Dmg == true)
@@ -139,12 +130,7 @@ public class playerController : MonoBehaviour
 
             }
                 
-        }
-
-        if (collision.gameObject.name == "Scoop")
-        {
-            movement = false;
-        }
+        }        
     }
 
     private void GameOver()
@@ -222,18 +208,6 @@ public class playerController : MonoBehaviour
             mouse = true;
         }
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Scoop")
-        {
-            Scoop call = GameObject.Find("Scoop").GetComponent<Scoop>();
-            movement = true;
-            zInput = call.xForce;
-            
-        }
-    }
-
     private void playerScale()
     {
         if (hp < 24)
