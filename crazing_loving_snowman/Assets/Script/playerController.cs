@@ -228,6 +228,12 @@ public class playerController : MonoBehaviour
             FacePanelMouse.color = new Color(1, 1, 1, 1);
             mouse = true;
         }
+
+        if (collision.gameObject.name == "MushRoom")
+        {
+            movement = false;
+            Invoke("playerMove", 5f);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -239,6 +245,11 @@ public class playerController : MonoBehaviour
             
 
         }
+    }
+
+    private void playerMove()
+    {
+        movement = true;
     }
 
     private void playerScale()
