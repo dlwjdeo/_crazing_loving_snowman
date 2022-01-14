@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class playerController : MonoBehaviour
     public Image FacePanelEye;
     public Image FacePanelNose;
     public Image FacePanelMouse;
+    public int nextSceneLoad;
     public bool gameOver;
     public float hp;
     private float pos;
@@ -40,6 +42,7 @@ public class playerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerTrans = GetComponent<Transform>();
         playerRender = GetComponent<SpriteRenderer>();
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
         gameOver = false;
         hp = 1;
         pos = playerTrans.position.x;
@@ -188,6 +191,24 @@ public class playerController : MonoBehaviour
             UIPanel.SetActive(false);
             FinishPanel.SetActive(true);
 
+            if (eye == true && nose == true && mouse == true)
+            {
+                if (SceneManager.GetActiveScene().buildIndex == 5)
+                {
+                    Debug.Log("ÀÏ´Ü ¿©±ä ³öµÒ");
+
+
+                }
+                else
+                {
+
+                    if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+                    {
+                        PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+                    }
+                }
+            }
+
         }
 
         if (collision.gameObject.name == "snowduck")
@@ -234,6 +255,8 @@ public class playerController : MonoBehaviour
             movement = false;
             Invoke("playerMove", 5f);
         }
+
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
