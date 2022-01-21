@@ -9,12 +9,18 @@ public class playerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private Transform playerTrans;
     private SpriteRenderer playerRender;
-    public GameObject FinishPanel;
+    public GameObject ClearPanel;
     public GameObject UIPanel;
     public GameObject gameover;
+    public GameObject NextStageBtn;
     public Image FacePanelEye;
     public Image FacePanelNose;
     public Image FacePanelMouse;
+    public Image ClearPanelEyeL;
+    public Image ClearPanelEyeR;
+    public Image ClearPanelNose;
+    public Image ClearPanelMouse;
+    public Image NextStage;
     public int nextSceneLoad;
     public bool gameOver;
     public float hp;
@@ -189,10 +195,13 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             UIPanel.SetActive(false);
-            FinishPanel.SetActive(true);
+            ClearPanel.SetActive(true);
 
             if (eye == true && nose == true && mouse == true)
             {
+                NextStage.color = new Color(1, 1, 1, 1);
+                NextStageBtn.SetActive(true);
+
                 if (SceneManager.GetActiveScene().buildIndex == 5)
                 {
                     Debug.Log("ÀÏ´Ü ¿©±ä ³öµÒ");
@@ -235,18 +244,22 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.tag == "Eye")
         {
             FacePanelEye.color = new Color(1, 1, 1, 1);
+            ClearPanelEyeL.color = new Color(1, 1, 1, 1);
+            ClearPanelEyeR.color = new Color(1, 1, 1, 1);
             eye = true;
         }
 
         if (collision.gameObject.tag == "Nose")
         {
             FacePanelNose.color = new Color(1, 1, 1, 1);
+            ClearPanelNose.color = new Color(1, 1, 1, 1);
             nose = true;
         }
 
         if (collision.gameObject.tag == "Mouse")
         {
             FacePanelMouse.color = new Color(1, 1, 1, 1);
+            ClearPanelMouse.color = new Color(1, 1, 1, 1);
             mouse = true;
         }
 
@@ -311,6 +324,8 @@ public class playerController : MonoBehaviour
             if (eye)
             {
                 FacePanelEye.color = new Color(1, 1, 1, 0.4f);
+                ClearPanelEyeL.color = new Color(1, 1, 1, 0);
+                ClearPanelEyeR.color = new Color(1, 1, 1, 0);
                 eye = false;
             }
             else
@@ -325,6 +340,7 @@ public class playerController : MonoBehaviour
             if (nose)
             {
                 FacePanelNose.color = new Color(1, 1, 1, 0.4f);
+                ClearPanelNose.color = new Color(1, 1, 1, 0);
                 nose = false;
             }
             else
@@ -338,6 +354,7 @@ public class playerController : MonoBehaviour
             if (mouse)
             {
                 FacePanelMouse.color = new Color(1, 1, 1, 0.4f);
+                ClearPanelMouse.color = new Color(1, 1, 1, 0);
                 mouse = false;
             }
             else
