@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6cf416f43b98e754290f577421eaa6c6
+guid: 3c8468172aa619348ae254fd9f0e2472
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -80,7 +80,7 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape:
-    - - {x: 15, y: 11}
+    - - {x: 16, y: 11}
       - {x: -23, y: 50}
       - {x: 50, y: 50}
       - {x: 50, y: 11}

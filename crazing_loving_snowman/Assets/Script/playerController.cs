@@ -161,6 +161,7 @@ public class playerController : MonoBehaviour
     private void GameOver()
     {
         gameObject.SetActive(false);
+        UIPanel.SetActive(false);
         gameover.SetActive(true);
 
     }
