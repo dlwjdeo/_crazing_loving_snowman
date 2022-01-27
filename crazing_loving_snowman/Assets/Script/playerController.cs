@@ -202,22 +202,133 @@ public class playerController : MonoBehaviour
             {
                 NextStage.color = new Color(1, 1, 1, 1);
                 NextStageBtn.SetActive(true);
-
-                if (SceneManager.GetActiveScene().buildIndex == 5)
+            
+                if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
                 {
-                    Debug.Log("ÀÏ´Ü ¿©±ä ³öµÒ");
+                        PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+                 }
+            }
 
-
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                if (eye == true)
+                {
+                    PlayerPrefs.SetInt("eye1", System.Convert.ToInt16(true));
                 }
                 else
                 {
+                    PlayerPrefs.SetInt("eye1", System.Convert.ToInt16(false));
+                }
 
-                    if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
-                    {
-                        PlayerPrefs.SetInt("levelAt", nextSceneLoad);
-                    }
+                if (nose == true)
+                {
+                    PlayerPrefs.SetInt("nose1", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("nose1", System.Convert.ToInt16(false));
+                }
+
+                if (mouse == true)
+                {
+                    PlayerPrefs.SetInt("mouse1", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("mouse1", System.Convert.ToInt16(false));
                 }
             }
+
+            else if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                if (eye == true)
+                {
+                    PlayerPrefs.SetInt("eye2", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("eye2", System.Convert.ToInt16(false));
+                }
+
+                if (nose == true)
+                {
+                    PlayerPrefs.SetInt("nose2", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("nose2", System.Convert.ToInt16(false));
+                }
+
+                if (mouse == true)
+                {
+                    PlayerPrefs.SetInt("mouse2", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("mouse2", System.Convert.ToInt16(false));
+                }
+            }
+
+            else if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                if (eye == true)
+                {
+                    PlayerPrefs.SetInt("eye3", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("eye3", System.Convert.ToInt16(false));
+                }
+
+                if (nose == true)
+                {
+                    PlayerPrefs.SetInt("nose3", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("nose3", System.Convert.ToInt16(false));
+                }
+
+                if (mouse == true)
+                {
+                    PlayerPrefs.SetInt("mouse3", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("mouse3", System.Convert.ToInt16(false));
+                }
+            }
+
+            else if (SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                if (eye == true)
+                {
+                    PlayerPrefs.SetInt("eye4", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("eye4", System.Convert.ToInt16(false));
+                }
+
+                if (nose == true)
+                {
+                    PlayerPrefs.SetInt("nose4", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("nose4", System.Convert.ToInt16(false));
+                }
+
+                if (mouse == true)
+                {
+                    PlayerPrefs.SetInt("mouse4", System.Convert.ToInt16(true));
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("mouse4", System.Convert.ToInt16(false));
+                }
+            }
+
 
         }
 
@@ -248,6 +359,7 @@ public class playerController : MonoBehaviour
             ClearPanelEyeL.color = new Color(1, 1, 1, 1);
             ClearPanelEyeR.color = new Color(1, 1, 1, 1);
             eye = true;
+
         }
 
         if (collision.gameObject.tag == "Nose")
@@ -420,6 +532,7 @@ public class playerController : MonoBehaviour
             }
         }
     }
+   
 
 
 }
