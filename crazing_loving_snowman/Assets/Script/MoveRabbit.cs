@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveRabbit : MonoBehaviour
 {
     Rigidbody2D rigid;
+    Animator rani;
+    SpriteRenderer render;
     public int nextMove;
     public int h;
     public float rabbitSpeed;
@@ -15,7 +17,37 @@ public class MoveRabbit : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        rani = GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
+        
     }
+
+    private void Update()
+    {
+
+        if (rigid.velocity.y > 0)
+        {
+
+            rani.SetBool("Jump", true);
+        }
+        else
+        {
+            rani.SetBool("Jump", false);
+        }
+
+        if (rigid.velocity.x > 0)
+        {
+            render.flipX = true;
+        }
+        else
+        {
+            render.flipX = false;
+        }
+
+
+
+    }
+
     private void FixedUpdate()
     {
         rigid.velocity = new Vector2(rabbitSpeed, rigid.velocity.y);
