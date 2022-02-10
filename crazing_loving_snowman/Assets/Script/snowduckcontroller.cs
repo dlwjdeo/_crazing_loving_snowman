@@ -10,6 +10,8 @@ public class snowduckcontroller : MonoBehaviour
     private CircleCollider2D sdCollider;
     private SpriteRenderer sdRender;
     private float timer;
+    private float collitimer;
+    private bool coldown;
 
     // Start is called before the first frame update
     void Start()
@@ -23,31 +25,54 @@ public class snowduckcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(coldown)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if (timer >= 6.5f)
+        {
+            sdCollider.enabled = true;
+            coldown = false;
+            timer = 0;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        sdAnimation.SetBool("colli", true);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Player")
         {
-            timer += Time.deltaTime;
-            sdAnimation.SetTrigger("coliision");
-            if (timer <= 6.5f)
+            collitimer += Time.deltaTime;
+
+
+            if (collitimer < 1.5)
             {
-                if (timer >= 1.5f)
-                {
-                    sdCollider.enabled = false;
-                    sdRender.color = new Color(1, 1, 1, 0);
-                }
+                sdAnimation.SetBool("close", true);
             }
             else
             {
-                sdCollider.enabled = true;
-                sdRender.color = new Color(1, 1, 1, 1);
-                timer = 0;
+                sdAnimation.SetBool("close", false);
             }
             
+
         }
-        
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            sdAnimation.SetBool("colli", false);
+            coldown = true;
+            collitimer = 0;
+            sdCollider.enabled = false;
+        }
+    }
+
 }

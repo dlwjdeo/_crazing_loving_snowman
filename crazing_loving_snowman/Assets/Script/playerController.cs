@@ -332,20 +332,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        if (collision.gameObject.name == "snowduck")
-        {
-            tmpTime += Time.deltaTime;
-
-            movement = false;
-            playerRigidbody.velocity = new Vector2(0, 0);
-            playerRender.color = new Color(1, 1, 1, 0);
-
-            if (tmpTime >= 1.5f)
-            {
-                movement = true;
-                playerRender.color = new Color(1, 1, 1, 1);
-            }
-        }
+        
 
         if (collision.gameObject.name == "eRabbit")
         {
@@ -385,15 +372,46 @@ public class playerController : MonoBehaviour
 
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "snowduck")
+        {
+            tmpTime += Time.deltaTime;
+
+            if (tmpTime >= 1.5f)
+            {
+                movement = true;
+                playerRender.color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                movement = false;
+                playerRigidbody.velocity = new Vector2(0, 0);
+                playerRender.color = new Color(1, 1, 1, 0);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "snowduck")
+        {
+            tmpTime = 0;
+        }
+    }
+
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Scoop")
         {
             
             movement = true;
-            
 
         }
+
+        
+
     }
 
     private void playerMove()
