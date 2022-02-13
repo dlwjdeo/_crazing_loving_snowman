@@ -11,6 +11,9 @@ public class Dummy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Invoke("destroy", destroyTimeI * 1f);
+        if (collision.gameObject.name == "Player")
+        {
+            Invoke("destroy", destroyTimeI * 1f);
+        }
     }
 }
