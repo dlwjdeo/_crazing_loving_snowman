@@ -9,6 +9,7 @@ TagManager:
   - Eye
   - Nose
   - Mouse
+  - Mushroom
   layers:
   - Default
   - TransparentFX

@@ -34,7 +34,7 @@ public class playerController : MonoBehaviour
     private bool eye;
     private bool nose;
     private bool mouse;
-    private bool movement;
+    public bool movement;
     private float tmpTime;
     private float scale;
     private float plusHp;
@@ -363,7 +363,7 @@ public class playerController : MonoBehaviour
             mouse = true;
         }
 
-        if (collision.gameObject.name == "MushRoom")
+        if (collision.gameObject.tag == "Mushroom")
         {
             movement = false;
             Invoke("playerMove", 5f);

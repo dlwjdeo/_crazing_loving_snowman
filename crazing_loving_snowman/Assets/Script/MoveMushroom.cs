@@ -10,6 +10,7 @@ public class MoveMushroom : MonoBehaviour
     public float stoppingDistance;
     public float retreatDistance;
     public Transform player;
+    private Vector2 bottomVec;
 
     private void Start()
     {
@@ -24,13 +25,21 @@ public class MoveMushroom : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
 
+        bottomVec = new Vector2(rigid.position.x, rigid.position.y - 3);
+        Debug.DrawRay(bottomVec, Vector3.down, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(bottomVec, Vector3.down, 1);
+        if (rayHit.collider != null)
+        {
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            Destroy(this);
+            
+            Destroy(gameObject);
         }
     }
 }
