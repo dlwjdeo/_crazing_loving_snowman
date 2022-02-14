@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ImageChange : MonoBehaviour
 {
-    public GameObject before;
+    public GameObject after;
 
     private Transform afterTransform;
 
@@ -19,7 +19,7 @@ public class ImageChange : MonoBehaviour
     private void changeObject()
     {
         Vector3 vec = gameObject.transform.position;
-        Instantiate(before, vec, Quaternion.identity);
+        Instantiate(after, vec, Quaternion.identity);
         Destroy(gameObject);
     }
 }
