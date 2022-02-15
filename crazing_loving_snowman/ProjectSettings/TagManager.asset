@@ -53,6 +53,12 @@ TagManager:
   - name: tilemap
     uniqueID: 448345331
     locked: 0
+  - name: house1
+    uniqueID: 3609806379
+    locked: 0
   - name: player
     uniqueID: 19272991
+    locked: 0
+  - name: house2
+    uniqueID: 695984209
     locked: 0
