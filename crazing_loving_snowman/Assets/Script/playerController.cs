@@ -39,8 +39,7 @@ public class playerController : MonoBehaviour
     private float scale;
     private float plusHp;
     private float zInput;
-    public float jumpPower;
-    public bool scoopJump;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +62,7 @@ public class playerController : MonoBehaviour
         movement = true;
         scale = 0.5f;
         plusHp = 1;
-        scoopJump = false;
+        
 
     }
 
@@ -80,11 +79,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        if (scoopJump == true)
-        {
-            playerRigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            scoopJump = false;
-        }
+        
 
         if (Dmg == true)
         {
@@ -174,10 +169,7 @@ public class playerController : MonoBehaviour
             Invoke("unDamage", 3);
         }
 
-        if (collision.gameObject.name == "Scoop")
-        {
-            playerRigidbody.velocity = new Vector2(0, 0);
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -403,12 +395,7 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Scoop")
-        {
-            
-            movement = true;
-
-        }
+        
 
         
 
