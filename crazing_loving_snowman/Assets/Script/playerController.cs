@@ -321,10 +321,16 @@ public class playerController : MonoBehaviour
                 }
             }
 
+            
+
 
         }
 
-        
+
+        if (collision.gameObject.tag == "snowduck")
+        {
+            hp = hp - 15;
+        }
 
         if (collision.gameObject.name == "eRabbit")
         {
@@ -366,7 +372,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "snowduck")
+        if (collision.gameObject.tag == "snowduck")
         {
             tmpTime += Time.deltaTime;
 
@@ -380,26 +386,21 @@ public class playerController : MonoBehaviour
                 movement = false;
                 playerRigidbody.velocity = new Vector2(0, 0);
                 playerRender.color = new Color(1, 1, 1, 0);
+                transform.position = collision.transform.position;
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "snowduck")
+        if (collision.gameObject.tag == "snowduck")
         {
             tmpTime = 0;
         }
     }
 
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        
 
-        
-
-    }
 
     private void playerMove()
     {

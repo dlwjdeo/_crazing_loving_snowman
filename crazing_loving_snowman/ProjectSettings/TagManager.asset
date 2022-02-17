@@ -10,6 +10,7 @@ TagManager:
   - Nose
   - Mouse
   - Mushroom
+  - snowduck
   layers:
   - Default
   - TransparentFX
