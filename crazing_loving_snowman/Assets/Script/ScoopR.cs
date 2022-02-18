@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scoop : MonoBehaviour
+public class ScoopR : MonoBehaviour
 {
     private Rigidbody2D rigidBody2D;
     public bool rotate;
@@ -19,15 +19,15 @@ public class Scoop : MonoBehaviour
     {
         if (rotate == true)
         {
-            if (rigidBody2D.rotation < 70f)
+            if (rigidBody2D.rotation > -70f)
             {
-                rigidBody2D.rotation += 10.0f;
+                rigidBody2D.rotation -= 10.0f;
             }
             else
             {
                 playerController call = GameObject.Find("Player").GetComponent<playerController>();
-                call.Lscoop = true;
-                rigidBody2D.rotation = 70f;
+                call.Rscoop = true;
+                rigidBody2D.rotation = -70f;
                 rotate = false;
                 Invoke("resetScoop", 2f);
             }
@@ -40,7 +40,7 @@ public class Scoop : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            if(count >= 0 )
+            if (count >= 0)
             {
                 count--;
                 Invoke("rotateScoop", 2f);
@@ -51,7 +51,6 @@ public class Scoop : MonoBehaviour
     {
         rotate = true;
     }
-
     void resetScoop()
     {
         rigidBody2D.rotation = 0f;

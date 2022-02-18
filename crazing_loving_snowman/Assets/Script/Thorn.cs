@@ -7,7 +7,10 @@ public class Thorn : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        playerController call = GameObject.Find("Player").GetComponent<playerController>();
-        call.hp = call.hp - 100;
+        if(collision.gameObject.tag == "Player")
+        {
+            playerController call = GameObject.Find("Player").GetComponent<playerController>();
+            call.hp = call.hp - 100;
+        }
     }
 }

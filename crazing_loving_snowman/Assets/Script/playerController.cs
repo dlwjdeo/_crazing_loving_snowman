@@ -34,6 +34,8 @@ public class playerController : MonoBehaviour
     private bool eye;
     private bool nose;
     private bool mouse;
+    public bool Lscoop;
+    public bool Rscoop;
     public bool movement;
     private float tmpTime;
     private float scale;
@@ -60,6 +62,8 @@ public class playerController : MonoBehaviour
         nose = false;
         mouse = false;
         movement = true;
+        Lscoop = false;
+        Rscoop = false;
         scale = 0.5f;
         plusHp = 1;
         
@@ -95,6 +99,18 @@ public class playerController : MonoBehaviour
         if (hp > 100)
         {
             hp = 100;
+        }
+
+        if (Lscoop == true)
+        {
+            playerRigidbody.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
+            Lscoop = false;
+        }
+
+        if (Rscoop == true)
+        {
+            playerRigidbody.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
+            Rscoop = false;
         }
 
 
