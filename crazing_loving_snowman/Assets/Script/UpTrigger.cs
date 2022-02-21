@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class UpTrigger : MonoBehaviour
 {
-    private bool up;
+    public bool up;
+    private Rigidbody2D rigid;
     public Transform target;
+    public float x;
+    public float y;
+    public float moveSpeed;
 
     private void Start()
     {
+        rigid = GetComponent<Rigidbody2D>();
         up = false;
     }
 
@@ -16,7 +21,15 @@ public class UpTrigger : MonoBehaviour
     {
         if(up == true)
         {
-
+            if(gameObject.transform.position.y < y)
+            {
+                transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position = new Vector3(x, y, 0);
+                up = false;
+            }
         }
     }
 
