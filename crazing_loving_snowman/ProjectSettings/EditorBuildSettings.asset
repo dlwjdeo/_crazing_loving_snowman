@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Title.unity
-    guid: 68b224063fce40e4cad0585ee476e7ac
+    guid: 244d3e1a391494a4f8c62042c6ddda7c
   - enabled: 1
     path: Assets/Scenes/Stage.unity
     guid: ac7f40fb5ac7f5a498112597e1133ca3
@@ -23,4 +26,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene3.unity
     guid: 62449593396020f4ca258b09dd6fbe28
+  - enabled: 1
+    path: Assets/Scenes/GameScene4.unity
+    guid: b2668e2ed2f4b7b4aa812f7a00209341
+  - enabled: 1
+    path: Assets/Scenes/StartCutScene.unity
+    guid: 3d41ec0011cc6094fbf90d2612021507
+  - enabled: 1
+    path: Assets/Scenes/1StageCut.unity
+    guid: 37b1162edcc1fe143bbf0096fb5adb77
+  - enabled: 1
+    path: Assets/Scenes/2StageCut.unity
+    guid: 834eebb19c4d1ca44aa49b4915aa64b4
+  - enabled: 1
+    path: Assets/Scenes/3StageCut.unity
+    guid: 79e713346328e4b469760b073c001047
+  - enabled: 1
+    path: Assets/Scenes/EndingCut.unity
+    guid: 50bbd5c5ae556c546b0079fe45a51670
   m_configObjects: {}
