@@ -217,7 +217,7 @@ public class playerController : MonoBehaviour
                  }
             }
 
-            if (SceneManager.GetActiveScene().buildIndex == 2)
+            if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 if (eye == true)
                 {
@@ -247,7 +247,7 @@ public class playerController : MonoBehaviour
                 }
             }
 
-            else if (SceneManager.GetActiveScene().buildIndex == 3)
+            else if (SceneManager.GetActiveScene().buildIndex == 4)
             {
                 if (eye == true)
                 {
@@ -277,7 +277,7 @@ public class playerController : MonoBehaviour
                 }
             }
 
-            else if (SceneManager.GetActiveScene().buildIndex == 4)
+            else if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 if (eye == true)
                 {
@@ -307,7 +307,7 @@ public class playerController : MonoBehaviour
                 }
             }
 
-            else if (SceneManager.GetActiveScene().buildIndex == 5)
+            else if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 if (eye == true)
                 {
@@ -337,7 +337,7 @@ public class playerController : MonoBehaviour
                 }
             }
 
-            
+
 
 
         }

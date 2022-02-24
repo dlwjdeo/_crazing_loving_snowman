@@ -1,27 +1,24 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class LevelSelection : MonoBehaviour
+public class FaceScore : MonoBehaviour
 {
-    public Button[] lvlButtons;
-    public GameObject Eye1;
-    public GameObject Nose1;
-    public GameObject Mouse1;
-    public GameObject Eye2;
-    public GameObject Nose2;
-    public GameObject Mouse2;
-    public GameObject Eye3;
-    public GameObject Nose3;
-    public GameObject Mouse3;
-    public GameObject Eye4;
-    public GameObject Nose4;
-    public GameObject Mouse4;
-    // Start is called before the first frame update
+    public Image Eye1;
+    public Image Nose1;
+    public Image Mouse1;
+    public Image Eye2;
+    public Image Nose2;
+    public Image Mouse2;
+    public Image Eye3;
+    public Image Nose3;
+    public Image Mouse3;
+    public Image Eye4;
+    public Image Nose4;
+    public Image Mouse4;
+
     void Start()
     {
-        int levelAt = PlayerPrefs.GetInt("levelAt", 2); 
         bool eye1value = System.Convert.ToBoolean(PlayerPrefs.GetInt("eye1"));
         bool nose1value = System.Convert.ToBoolean(PlayerPrefs.GetInt("nose1"));
         bool mouse1value = System.Convert.ToBoolean(PlayerPrefs.GetInt("mouse1"));
@@ -35,119 +32,115 @@ public class LevelSelection : MonoBehaviour
         bool nose4value = System.Convert.ToBoolean(PlayerPrefs.GetInt("nose4"));
         bool mouse4value = System.Convert.ToBoolean(PlayerPrefs.GetInt("mouse4"));
 
-        for (int i = 0; i < lvlButtons.Length; i++)
-        {
-            if (i + 2 > levelAt)
-                lvlButtons[i].interactable = false;
-        }
 
-        if(eye1value == true)
+        if (eye1value == true)
         {
-            Eye1.SetActive(true);
+            Eye1.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Eye1.SetActive(false);
+            Eye1.color = new Color(1, 1, 1, 0);
         }
 
         if (nose1value == true)
         {
-            Nose1.SetActive(true);
+            Nose1.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Nose1.SetActive(false);
+            Nose1.color = new Color(1, 1, 1, 0);
         }
 
         if (mouse1value == true)
         {
-            Mouse1.SetActive(true);
+            Mouse1.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Mouse1.SetActive(false);
+            Mouse1.color = new Color(1, 1, 1, 0);
         }
 
         if (eye2value == true)
         {
-            Eye2.SetActive(true);
+            Eye2.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Eye2.SetActive(false);
+            Eye2.color = new Color(1, 1, 1, 0);
         }
 
         if (nose2value == true)
         {
-            Nose2.SetActive(true);
+            Nose2.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Nose2.SetActive(false);
+            Nose2.color = new Color(1, 1, 1, 0);
         }
 
         if (mouse2value == true)
         {
-            Mouse2.SetActive(true);
+            Mouse2.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Mouse2.SetActive(false);
+            Mouse2.color = new Color(1, 1, 1, 0);
         }
 
         if (eye3value == true)
         {
-            Eye3.SetActive(true);
+            Eye3.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Eye3.SetActive(false);
+            Eye3.color = new Color(1, 1, 1, 0);
         }
 
         if (nose3value == true)
         {
-            Nose3.SetActive(true);
+            Nose3.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Nose3.SetActive(false);
+            Nose3.color = new Color(1, 1, 1, 0);
         }
 
         if (mouse3value == true)
         {
-            Mouse3.SetActive(true);
+            Mouse3.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Mouse3.SetActive(false);
+            Mouse3.color = new Color(1, 1, 1, 0);
         }
         if (eye4value == true)
         {
-            Eye4.SetActive(true);
+            Eye4.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Eye4.SetActive(false);
+            Eye4.color = new Color(1, 1, 1, 0);
         }
 
         if (nose4value == true)
         {
-            Nose4.SetActive(true);
+            Nose4.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Nose4.SetActive(false);
+            Nose4.color = new Color(1, 1, 1, 0);
         }
 
         if (mouse4value == true)
         {
-            Mouse4.SetActive(true);
+            Mouse4.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            Mouse4.SetActive(false);
+            Mouse4.color = new Color(1, 1, 1, 0);
         }
-        
     }
 
+    // Update is called once per frame
+    
 }

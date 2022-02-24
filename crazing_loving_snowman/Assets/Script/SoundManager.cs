@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class SoundManager : MonoBehaviour
 {
+
     public AudioSource BgSound;
     public AudioClip[] bglist;
     public static SoundManager instance;
@@ -21,6 +24,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       
     }
     private void OnSceneLoaded(Scene arg0,LoadSceneMode arg1)
     {
@@ -30,13 +34,21 @@ public class SoundManager : MonoBehaviour
                 BgSoundPlay(bglist[i]);
             
         }
+        if (SceneManager.GetActiveScene().name == "GameScene1" || SceneManager.GetActiveScene().name == "GameScene2" || SceneManager.GetActiveScene().name == "GameScene3" || SceneManager.GetActiveScene().name == "GameScene4")
+        {
+            BgSound.Stop();
+        }
     }
+  
+
     public void BgSoundPlay(AudioClip clip)
     {
+       
         BgSound.clip = clip;
         BgSound.loop = true;
         BgSound.volume = 0.1f;
         BgSound.Play();
+        
     }
 
 
