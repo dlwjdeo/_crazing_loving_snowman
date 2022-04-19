@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3608324491809739328}
   - component: {fileID: 3608324491809739335}
+  - component: {fileID: -2990862924284854479}
   - component: {fileID: 3608324491809739334}
   - component: {fileID: 3608324491809739333}
   - component: {fileID: 3608324491809739332}
   - component: {fileID: 3608324491809739339}
   m_Layer: 6
   m_Name: 'wRabbit '
-  m_TagString: Untagged
+  m_TagString: wRabbit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 19272991
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fccefcbf5babc1343ae5df663ef17fe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -86,6 +87,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2990862924284854479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608324491809739338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ad56a458c1dfb4797e0ee5a9c6dbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3608324491809739334
 MonoBehaviour:
   m_ObjectHideFlags: 0

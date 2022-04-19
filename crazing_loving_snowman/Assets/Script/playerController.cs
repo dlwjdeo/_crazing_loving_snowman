@@ -161,7 +161,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        if (collision.gameObject.name == "Scoop")
+        if (collision.gameObject.tag == "Scoop")
         {
             
             
@@ -342,13 +342,12 @@ public class playerController : MonoBehaviour
 
         }
 
-
         if (collision.gameObject.tag == "snowduck")
         {
             hp = hp - 15;
         }
 
-        if (collision.gameObject.name == "eRabbit")
+        if (collision.gameObject.tag == "eRabbit")
         {
             int randomFace = Random.Range(1, 3);
             loseFace(randomFace);
@@ -392,6 +391,7 @@ public class playerController : MonoBehaviour
         {
             tmpTime += Time.deltaTime;
 
+          
             if (tmpTime >= 1.5f)
             {
                 movement = true;

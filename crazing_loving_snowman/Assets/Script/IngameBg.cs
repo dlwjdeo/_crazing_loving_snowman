@@ -9,12 +9,21 @@ public class IngameBg : MonoBehaviour
     public AudioMixer mixer;
     public AudioSource BgSound1;
     public AudioClip[] bglist;
-    public static SoundManager instance;
+    public static IngameBg instance;
 
     private void Awake()
     {
-      
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
             SceneManager.sceneLoaded += OnSceneLoaded;
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
 
     }

@@ -11,6 +11,8 @@ TagManager:
   - Mouse
   - Mushroom
   - snowduck
+  - wRabbit
+  - eRabbit
   layers:
   - Default
   - TransparentFX
