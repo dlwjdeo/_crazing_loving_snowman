@@ -13,6 +13,7 @@ TagManager:
   - snowduck
   - wRabbit
   - eRabbit
+  - Face
   layers:
   - Default
   - TransparentFX
