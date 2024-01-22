@@ -26,15 +26,11 @@ public class FaceUI : MonoBehaviour
 
         int startIndex = (SceneManager.GetActiveScene().buildIndex - 3) * 3;
 
-        if (startIndex >= 0 && startIndex < FaceScoreData.Faces.Count)
+        if (startIndex >= 0 && startIndex < FaceScoreData.Faces.Count) 
         {
-            int endIndex = startIndex + 2;
-
-            for (int i = startIndex; i <= endIndex; i++)
-            {
-                FaceScoreData.Faces[i] = null; // 빈 공간으로 설정 
-
-            }
+            
+            FaceScoreData.Faces.RemoveRange(startIndex, 3);
+           
         }
         if (FaceScoreData.Faces.Count > 12)
         {
@@ -50,6 +46,7 @@ public class FaceUI : MonoBehaviour
         Color color = slots[_faces.FaceData.FaceType].GetComponent<Image>().color;
         color.a = _alpha;
         slots[_faces.FaceData.FaceType].GetComponent<Image>().color = color;
+
     }
 
   

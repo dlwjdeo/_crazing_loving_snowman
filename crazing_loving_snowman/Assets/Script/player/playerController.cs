@@ -44,16 +44,16 @@ public class playerController : MonoBehaviour
 
 
 
-   
     [SerializeField] private FaceUI faceUI;
-
+    [SerializeField] private List<FaceData> nullData = new List<FaceData>();
+    private int startIndex;
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerTrans = GetComponent<Transform>();
         playerRender = GetComponent<SpriteRenderer>();
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1; //클리어 시 해금되는 씬 번호
         gameOver = false;
         hp = 1;
         pos = playerTrans.position.x;
@@ -70,8 +70,10 @@ public class playerController : MonoBehaviour
         Rscoop = false;
         scale = 0.5f;
         plusHp = 1;
-        
 
+        
+        startIndex = (SceneManager.GetActiveScene().buildIndex - 3) * 3;
+        
     }
 
     // Update is called once per frame
@@ -211,138 +213,27 @@ public class playerController : MonoBehaviour
             ClearPanel.SetActive(true);
 
 
-            if (eye == true && nose == true && mouse == true) //승리조건
+            if (faceUI.FaceScoreData.Faces.Count == startIndex + 3)
             {
                 NextStage.color = new Color(1, 1, 1, 1);
                 NextStageBtn.SetActive(true);
-            
+
                 if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
                 {
-                        PlayerPrefs.SetInt("levelAt", nextSceneLoad);
-                 }
-            }
+                    PlayerPrefs.SetInt("levelAt", nextSceneLoad); //클리어 시 해금되는 씬 번호 저장해서 넘기기
+                }
 
-            if (SceneManager.GetActiveScene().buildIndex == 3)
+                Debug.Log("꿀리어");
+            }
+            if (faceUI.FaceScoreData.Faces.Count < startIndex + 3)
             {
-                if (eye == true)
-                {
-                    PlayerPrefs.SetInt("eye1", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("eye1", System.Convert.ToInt16(false));
-                }
-
-                if (nose == true)
-                {
-                    PlayerPrefs.SetInt("nose1", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("nose1", System.Convert.ToInt16(false));
-                }
-
-                if (mouse == true)
-                {
-                    PlayerPrefs.SetInt("mouse1", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("mouse1", System.Convert.ToInt16(false));
-                }
-            }
-
-            else if (SceneManager.GetActiveScene().buildIndex == 4)
-            {
-                if (eye == true)
-                {
-                    PlayerPrefs.SetInt("eye2", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("eye2", System.Convert.ToInt16(false));
-                }
-
-                if (nose == true)
-                {
-                    PlayerPrefs.SetInt("nose2", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("nose2", System.Convert.ToInt16(false));
-                }
-
-                if (mouse == true)
-                {
-                    PlayerPrefs.SetInt("mouse2", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("mouse2", System.Convert.ToInt16(false));
-                }
-            }
-
-            else if (SceneManager.GetActiveScene().buildIndex == 5)
-            {
-                if (eye == true)
-                {
-                    PlayerPrefs.SetInt("eye3", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("eye3", System.Convert.ToInt16(false));
-                }
-
-                if (nose == true)
-                {
-                    PlayerPrefs.SetInt("nose3", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("nose3", System.Convert.ToInt16(false));
-                }
-
-                if (mouse == true)
-                {
-                    PlayerPrefs.SetInt("mouse3", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("mouse3", System.Convert.ToInt16(false));
-                }
-            }
-
-            else if (SceneManager.GetActiveScene().buildIndex == 6)
-            {
-                if (eye == true)
-                {
-                    PlayerPrefs.SetInt("eye4", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("eye4", System.Convert.ToInt16(false));
-                }
-
-                if (nose == true)
-                {
-                    PlayerPrefs.SetInt("nose4", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("nose4", System.Convert.ToInt16(false));
-                }
-
-                if (mouse == true)
-                {
-                    PlayerPrefs.SetInt("mouse4", System.Convert.ToInt16(true));
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("mouse4", System.Convert.ToInt16(false));
-                }
+               while(faceUI.FaceScoreData.Faces.Count < startIndex + 3)
+                    faceUI.FaceScoreData.Add(nullData[startIndex]); //획득 못한 곳에 null데이터
             }
 
 
+            
+           
 
 
         }
@@ -358,35 +249,14 @@ public class playerController : MonoBehaviour
             loseFace(randomFace);
         }
 
-        //if (collision.gameObject.tag == "Eye")
-        //{
-        //    FacePanelEye.color = new Color(1, 1, 1, 1);
-        //    ClearPanelEyeL.color = new Color(1, 1, 1, 1);
-        //    ClearPanelEyeR.color = new Color(1, 1, 1, 1);
-        //    eye = true;
-
-        //}
-
-        //if (collision.gameObject.tag == "Nose")
-        //{
-        //    FacePanelNose.color = new Color(1, 1, 1, 1);
-        //    ClearPanelNose.color = new Color(1, 1, 1, 1);
-        //    nose = true;
-        //}
-
-        //if (collision.gameObject.tag == "Mouse")
-        //{
-        //    FacePanelMouse.color = new Color(1, 1, 1, 1);
-        //    ClearPanelMouse.color = new Color(1, 1, 1, 1);
-        //    mouse = true;
-        //}
-        if (collision.gameObject.tag == "Face")
+        
+        if (collision.gameObject.tag == "Face") //눈코입 획득
         {
            
             Face face = collision.GetComponent<Face>();
             faceUI.FaceScoreData.Add(face.FaceData);
             faceUI.AcquireItem(face,1);
-            
+            Destroy(collision.gameObject);
 
         }
         if (collision.gameObject.tag == "Mushroom")
