@@ -15,27 +15,27 @@ public class FaceUI : MonoBehaviour
     [SerializeField] private List<Sprite> images = new List<Sprite>();
     void Start()
     {
-        
+       
         slots = go_SlotsParent.GetComponentsInChildren<FaceSlot>();
 
-        //시작할 때 이미지 흑백으로 띄우기
+        //시작할 때 이미지 가져오기
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].GetComponent<Image>().sprite = images[i];
         }
 
+        //스테이지 시작할때 데이터 초기화
+
         int startIndex = (SceneManager.GetActiveScene().buildIndex - 3) * 3;
 
-        if (startIndex >= 0 && startIndex < FaceScoreData.Faces.Count) 
-        {
+            if (startIndex >= 0 &&  FaceScoreData.Faces.Count>2)
+            {
+
+                FaceScoreData.Faces.RemoveRange(startIndex, 3); 
+
+            }
             
-            FaceScoreData.Faces.RemoveRange(startIndex, 3);
-           
-        }
-        if (FaceScoreData.Faces.Count > 12)
-        {
-            FaceScoreData.Faces.RemoveRange(12, FaceScoreData.Faces.Count-12);
-        }
+        
     }
 
     public void AcquireItem(Face _faces,float _alpha)
@@ -48,6 +48,7 @@ public class FaceUI : MonoBehaviour
         slots[_faces.FaceData.FaceType].GetComponent<Image>().color = color;
 
     }
+
 
   
 }
