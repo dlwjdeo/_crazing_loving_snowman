@@ -15,4 +15,4 @@ MonoBehaviour:
   stageNum: 1
   faceType: 0
   faceImage: {fileID: 21300000, guid: c34105eb1d17db54f9c71e5255e22ed2, type: 3}
-  scoreImage: {fileID: 21300000, guid: 414aac36ded038048b093ec1dd7c0bd3, type: 3}
+  scoreImage: {fileID: 21300000, guid: 21c9949e2cb5065409247d3d0b5bdc94, type: 3}

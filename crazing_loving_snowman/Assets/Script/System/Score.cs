@@ -8,26 +8,42 @@ public class Score : MonoBehaviour
     public FaceScoreData FaceScoreData { get => faceScoreData; }
 
     [SerializeField]
-    private List<GameObject> slot;
+    private GameObject Parent;
+
+    [SerializeField] private Image[] scores;
+    [SerializeField] private List<Sprite> images = new List<Sprite>();
     // Start is called before the first frame update
     void Start()
     {
+
+        scores = Parent.GetComponentsInChildren<Image>();
+
+        for (int i = 0; i < scores.Length; i++)
+        {
+            images.Add(scores[i].GetComponent<Image>().sprite);
+        }
+    }
+  
+    public void ScoreUpdate(int stageNum)
+    {
+        Debug.Log(stageNum);
+
+        for (int i = 0; i < scores.Length; i++)
+        {
+            scores[i].GetComponent<Image>().sprite = images[i];
+        }
         if (FaceScoreData != null)
         {
             for (int i = 0; i < FaceScoreData.Faces.Count; i++)
             {
-                if (FaceScoreData.Faces[i].FaceType != 5)
+                if (FaceScoreData.Faces[i].StageNum == stageNum && FaceScoreData.Faces[i].FaceType != 5)
                 {
-                    slot[i].GetComponent<Image>().sprite = FaceScoreData.Faces[i].ScoreImage;
+                    scores[FaceScoreData.Faces[i].FaceType].GetComponent<Image>().sprite = FaceScoreData.Faces[i].ScoreImage;
                 }
+               
             }
         }
 
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Parent.SetActive(true);
     }
 }

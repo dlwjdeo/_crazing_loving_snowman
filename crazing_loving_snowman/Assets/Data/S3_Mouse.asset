@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ef39bc7ec57b6f42882f01526fda67f, type: 3}
-  m_Name: S1_Nose
+  m_Name: S3_Mouse
   m_EditorClassIdentifier: 
-  stageNum: 1
-  faceType: 1
-  faceImage: {fileID: 21300000, guid: 8e1c8f1342bc82743b921a30c525d4de, type: 3}
-  scoreImage: {fileID: 21300000, guid: 80028e1e647b51a47bbaa617fc3edda2, type: 3}
+  stageNum: 3
+  faceType: 2
+  faceImage: {fileID: 21300000, guid: 8207e89aa07965b4dbf4851bcbe19cd7, type: 3}
+  scoreImage: {fileID: 21300000, guid: a369101b2639f094282fa92d16e003ea, type: 3}

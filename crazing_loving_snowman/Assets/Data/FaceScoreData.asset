@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: FaceScoreData
   m_EditorClassIdentifier: 
   faces:
-  - {fileID: 11400000, guid: 27b1464483b2957419f36f3d3ed1ef2a, type: 2}
-  - {fileID: 11400000, guid: 27b1464483b2957419f36f3d3ed1ef2a, type: 2}
+  - {fileID: 11400000, guid: 42d517c48e26cde46bdbd1a5184a4689, type: 2}
+  - {fileID: 11400000, guid: 42d517c48e26cde46bdbd1a5184a4689, type: 2}
+  - {fileID: 11400000, guid: 2f82e3f328ceccf4294769d925d70786, type: 2}
+  - {fileID: 11400000, guid: ba96418fcde5302429a5fd39046b3f86, type: 2}
+  - {fileID: 11400000, guid: d84efb5e40f1e2545918b49bad6b4848, type: 2}

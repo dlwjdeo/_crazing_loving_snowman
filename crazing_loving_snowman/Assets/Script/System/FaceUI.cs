@@ -10,7 +10,7 @@ public class FaceUI : MonoBehaviour
 
     [SerializeField] private GameObject go_SlotsParent;  // Slot들의 부모인 Grid Setting 
 
-    public FaceSlot[] slots;  // 슬롯들 배열
+    private FaceSlot[] slots;  // 슬롯들 배열
 
     [SerializeField] private List<Sprite> images = new List<Sprite>();
     void Start()
