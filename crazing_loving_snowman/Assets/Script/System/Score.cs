@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
 
         for (int i = 0; i < scores.Length; i++)
         {
-            images.Add(scores[i].GetComponent<Image>().sprite);
+            images.Add(scores[i].GetComponent<Image>().sprite); //시작 이미지 다른 곳에 저장 해두기
         }
     }
   
@@ -30,13 +30,13 @@ public class Score : MonoBehaviour
 
         for (int i = 0; i < scores.Length; i++)
         {
-            scores[i].GetComponent<Image>().sprite = images[i];
+            scores[i].GetComponent<Image>().sprite = images[i]; //기본 이미지로 초기화하고
         }
-        if (FaceScoreData != null)
+        if (FaceScoreData != null) // 데이터에 있는 스코어 띄우기
         {
             for (int i = 0; i < FaceScoreData.Faces.Count; i++)
             {
-                if (FaceScoreData.Faces[i].StageNum == stageNum && FaceScoreData.Faces[i].FaceType != 5)
+                if (FaceScoreData.Faces[i].StageNum == stageNum && FaceScoreData.Faces[i].FaceType != 5) //
                 {
                     scores[FaceScoreData.Faces[i].FaceType].GetComponent<Image>().sprite = FaceScoreData.Faces[i].ScoreImage;
                 }

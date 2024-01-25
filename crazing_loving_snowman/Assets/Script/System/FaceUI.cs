@@ -8,15 +8,20 @@ public class FaceUI : MonoBehaviour
     [SerializeField] private FaceScoreData faceScoreData;
     public FaceScoreData FaceScoreData { get => faceScoreData; }
 
-    [SerializeField] private GameObject go_SlotsParent;  // Slot들의 부모인 Grid Setting 
+    [SerializeField] private GameObject SlotsParent;  // Slot들의 부모인 Grid Setting 
 
     private FaceSlot[] slots;  // 슬롯들 배열
 
+
+    [SerializeField] private GameObject ScoresParent;
+    private Image[] scores;
+    [SerializeField] private Sprite[] scoreImages;
     [SerializeField] private List<Sprite> images = new List<Sprite>();
     void Start()
     {
        
-        slots = go_SlotsParent.GetComponentsInChildren<FaceSlot>();
+        slots = SlotsParent.GetComponentsInChildren<FaceSlot>(); 
+        scores = ScoresParent.GetComponentsInChildren<Image>();
 
         //시작할 때 이미지 가져오기
         for (int i = 0; i < slots.Length; i++)
@@ -48,7 +53,15 @@ public class FaceUI : MonoBehaviour
         slots[_faces.FaceData.FaceType].GetComponent<Image>().color = color;
 
     }
+    public void ScoreChange(Face _faces)
+    {
+        if(_faces.FaceData.FaceType == 0)
+        {
+            scores[_faces.FaceData.FaceType].sprite = scoreImages[_faces.FaceData.FaceType];
+        }
+        scores[_faces.FaceData.FaceType+1].sprite = scoreImages[_faces.FaceData.FaceType];
+    }
 
 
-  
+
 }

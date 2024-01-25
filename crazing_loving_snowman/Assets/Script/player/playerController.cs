@@ -256,6 +256,7 @@ public class playerController : MonoBehaviour
             Face face = collision.GetComponent<Face>();
             faceUI.FaceScoreData.Add(face.FaceData);
             faceUI.AcquireItem(face,1);
+            faceUI.ScoreChange(face);
             Destroy(collision.gameObject);
 
         }
