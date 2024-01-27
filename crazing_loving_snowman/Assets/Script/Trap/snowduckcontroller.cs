@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class snowduckcontroller : MonoBehaviour
+public class snowduckcontroller : Trap
 {
     private Animator sdAnimation;
     private CircleCollider2D sdCollider;
@@ -14,16 +14,16 @@ public class snowduckcontroller : MonoBehaviour
     private bool coldown;
 
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
         sdAnimation = GetComponent<Animator>();
         sdCollider = GetComponent<CircleCollider2D>();
-        sdRender = GetComponent<SpriteRenderer>();
+        //sdRender = GetComponent<SpriteRenderer>();
         
     }
 
     // Update is called once per frame
-    void Update()
+    override public void Update()
     {
         if(coldown)
         {
@@ -38,12 +38,15 @@ public class snowduckcontroller : MonoBehaviour
         }
 
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    override public void OnTriggerEnter2D(Collider2D collision)
     {
-        sdAnimation.SetBool("colli", true);
-    }
 
+        sdAnimation.SetBool("colli", true);
+      
+    }
+   
+     
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -68,10 +71,12 @@ public class snowduckcontroller : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            
             sdAnimation.SetBool("colli", false);
             coldown = true;
             collitimer = 0;
             sdCollider.enabled = false;
+            Damage(collision.GetComponent<playerController>());
         }
     }
 

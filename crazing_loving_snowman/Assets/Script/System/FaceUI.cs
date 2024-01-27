@@ -31,18 +31,26 @@ public class FaceUI : MonoBehaviour
 
         //스테이지 시작할때 데이터 초기화
 
+        DataReset();
+
+
+
+    }
+   public void DataReset()
+    {
         int startIndex = (SceneManager.GetActiveScene().buildIndex - 3) * 3;
 
-            if (startIndex >= 0 &&  FaceScoreData.Faces.Count>2)
-            {
+        if (startIndex >= 0 && FaceScoreData.Faces.Count > 2)
+        {
 
-                FaceScoreData.Faces.RemoveRange(startIndex, 3); 
+            FaceScoreData.Faces.RemoveRange(startIndex, 3);
 
-            }
-            
-        
+        }
+        if (FaceScoreData.Faces.Count < 2)
+        {
+            FaceScoreData.Faces.Clear();
+        }
     }
-
     public void AcquireItem(Face _faces,float _alpha)
     {
         //이미지 바꾸기

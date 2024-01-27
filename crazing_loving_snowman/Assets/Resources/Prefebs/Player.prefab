@@ -46,17 +46,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e664c098f52f3fa43a0e9525959630a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FinishPanel: {fileID: 0}
+  playerRender: {fileID: 0}
+  ClearPanel: {fileID: 0}
   UIPanel: {fileID: 0}
   gameover: {fileID: 0}
+  NextStageBtn: {fileID: 0}
   FacePanelEye: {fileID: 0}
   FacePanelNose: {fileID: 0}
   FacePanelMouse: {fileID: 0}
+  ClearPanelEyeL: {fileID: 0}
+  ClearPanelEyeR: {fileID: 0}
+  ClearPanelNose: {fileID: 0}
+  ClearPanelMouse: {fileID: 0}
+  NextStage: {fileID: 0}
+  nextSceneLoad: 0
   gameOver: 0
-  hp: 1
-  Dmg: 0
-  interval: 0
-  vis: 0
+  hp: 50
+  Lscoop: 0
+  Rscoop: 0
+  movement: 0
+  faceUI: {fileID: 0}
+  nullData: []
 --- !u!50 &6662573788315799125
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +142,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 19272991
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0e7d9c7c63e966d4ba5db76d79d4804e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

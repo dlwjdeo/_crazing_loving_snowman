@@ -15,6 +15,7 @@ public class MoveMushroom : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rigid = GetComponent<Rigidbody2D>();
     }
 
 

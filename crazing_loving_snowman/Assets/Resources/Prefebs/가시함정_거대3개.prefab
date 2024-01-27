@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424576626658932107}
-  - component: {fileID: 2664921447244920321}
   - component: {fileID: 7080630525243931164}
   - component: {fileID: 6047771791333428836}
+  - component: {fileID: 4439729597552006035}
   m_Layer: 0
   m_Name: "\uAC00\uC2DC\uD568\uC815_\uAC70\uB3003\uAC1C"
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2664921447244920321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250393113405156732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82defe666cd32a3449b533eb1ea451b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &7080630525243931164
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,7 +94,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -121,3 +109,16 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &4439729597552006035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250393113405156732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad41ec96ff65db44fb1cad8961b1f0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

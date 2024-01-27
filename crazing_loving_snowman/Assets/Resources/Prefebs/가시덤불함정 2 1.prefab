@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2804992172195388944}
   - component: {fileID: 2420755115956930911}
-  - component: {fileID: 747497982002708401}
   - component: {fileID: 2814880711899253467}
+  - component: {fileID: 5407889392346603375}
   m_Layer: 0
   m_Name: "\uAC00\uC2DC\uB364\uBD88\uD568\uC815 2 1"
   m_TagString: Untagged
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &747497982002708401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930879141936177024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82defe666cd32a3449b533eb1ea451b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2814880711899253467
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -209,3 +197,16 @@ PolygonCollider2D:
       - {x: 0.98999995, y: -0.9}
       - {x: 0.97999996, y: -0.91999996}
       - {x: 1, y: -0.91999996}
+--- !u!114 &5407889392346603375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930879141936177024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad41ec96ff65db44fb1cad8961b1f0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
