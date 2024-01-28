@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveRabbit : MonoBehaviour
+public class MoveRabbit : Trap
 {
     Rigidbody2D rigid;
     Animator rani;
@@ -14,15 +14,14 @@ public class MoveRabbit : MonoBehaviour
     public int rabbitJumpCount;
     private int jumpCount = 0;
     private int turn = 1;
-    private void Awake()
+
+    override public void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         rani = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
-        
     }
-
-    private void Update()
+    override public void Update()
     {
 
         if (rigid.velocity.y > 0)
@@ -44,8 +43,6 @@ public class MoveRabbit : MonoBehaviour
             render.flipX = false;
         }
 
-
-
     }
 
     private void FixedUpdate()
@@ -53,19 +50,39 @@ public class MoveRabbit : MonoBehaviour
         rigid.velocity = new Vector2(rabbitSpeed, rigid.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    override public void OnCollisionEnter2D(Collision2D collision)
     {
         rabbitSpeed = 0;
-        Invoke("jumpRabbit", 2f);
+        StartCoroutine("jumpRabbit");
         turnDirection();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerController Player = collision.gameObject.GetComponent<playerController>();
+            if (gameObject.CompareTag("wRabbit"))
+            {
+                Damage(Player);
+                bounce(Player);
+            }
+            else
+            {
+
+            }
+        }
+
+        //rabbitSpeed = 0;
+        //Invoke("jumpRabbit", 2f);
+        //turnDirection();
     }
+
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         rabbitSpeed = -speed * turn;
         jumpCount++;
     }
-    void jumpRabbit()
+    IEnumerator jumpRabbit()
     {
+        yield return new WaitForSeconds(2.0f);
         rigid.AddForce(Vector2.up * h, ForceMode2D.Impulse);
     }
     void turnDirection()
@@ -76,4 +93,12 @@ public class MoveRabbit : MonoBehaviour
             jumpCount = 0;
         }
     }
+    private void bounce(playerController Player)
+    {
+        int dirc = transform.position.x - Player.transform.position.x < 0 ? 1 : -1;
+        Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+
+    }
+    
+
 }

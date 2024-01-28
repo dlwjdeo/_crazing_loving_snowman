@@ -57319,7 +57319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608324491809739338, guid: 71740faa143436645a4525a11adaad6d, type: 3}
       propertyPath: m_TagString
-      value: dmgTrap
+      value: wRabbit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71740faa143436645a4525a11adaad6d, type: 3}
@@ -63949,11 +63949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662573788315799127, guid: 5b690e2deba23ac4a99d046057197516, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.17
+      value: 44.24
       objectReference: {fileID: 0}
     - target: {fileID: 6662573788315799127, guid: 5b690e2deba23ac4a99d046057197516, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.41
+      value: -1.14
       objectReference: {fileID: 0}
     - target: {fileID: 6662573788315799127, guid: 5b690e2deba23ac4a99d046057197516, type: 3}
       propertyPath: m_LocalPosition.z

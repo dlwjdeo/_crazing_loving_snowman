@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//»ç¿ëx
 public class DmgRabbit : MonoBehaviour
 {   
     private void OnCollisionEnter2D(Collision2D other)

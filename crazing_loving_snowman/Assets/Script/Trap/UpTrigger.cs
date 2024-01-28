@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpTrigger : MonoBehaviour
+public class UpTrigger : Trap
 {
-    public bool up;
-    private Rigidbody2D rigid;
-    public Transform target;
-    public float x;
-    public float y;
-    public float moveSpeed;
+    [SerializeField]private bool up;
+    //private Rigidbody2D rigid;
+    //public Transform target;
+    //public float x;
+    [SerializeField] private float y;
+    [SerializeField] private float moveSpeed;
 
-    private void Start()
-    {
-        rigid = GetComponent<Rigidbody2D>();
-        up = false;
-    }
+    //override public void Start()
+    //{
+    //    rigid = GetComponent<Rigidbody2D>();
+    //    up = false;
+    //}
 
-    private void Update()
+    override public void Update()
     {
         if(up == true)
         {
@@ -27,22 +27,20 @@ public class UpTrigger : MonoBehaviour
             }
             else
             {
-                transform.position = new Vector3(x, y, 0);
+                transform.position = new Vector3(transform.position.x, y, 0);
                 up = false;
             }
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator upTrigger()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            Invoke("upTrigger",2f);
-        }
+        yield return new WaitForSeconds(2.0f);
+        up = true;
     }
 
-    void upTrigger()
+    override public void Effect(playerController Player)
     {
-        up = true;
+        StartCoroutine("upTrigger");
     }
 }

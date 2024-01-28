@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MakeMush : MonoBehaviour
 {
-    public GameObject mushroom;
+    [SerializeField] private GameObject mushroom;
+    
 
     private void Start()
     {

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
-    private Rigidbody2D playerRigidbody;
+    public Rigidbody2D playerRigidbody;
     private Transform playerTrans;
     public SpriteRenderer playerRender;
     public GameObject ClearPanel;
@@ -37,7 +37,7 @@ public class playerController : MonoBehaviour
     public bool Lscoop;
     public bool Rscoop;
     public bool movement;
-    private float tmpTime;
+    public float tmpTime;
     private float scale;
     private float plusHp;
     private float zInput;
@@ -55,7 +55,7 @@ public class playerController : MonoBehaviour
         playerRender = GetComponent<SpriteRenderer>();
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1; //Å¬¸®¾î ½Ã ÇØ±ÝµÇ´Â ¾À ¹øÈ£
         gameOver = false;
-        hp = 1;
+        hp = 50;
         pos = playerTrans.position.x;
         interval = 1;
         vis = true;
@@ -193,16 +193,16 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "dmgTrap")
-        {
-            //onDamage();
-            //Invoke("unDamage", 3);
+        //if (collision.gameObject.tag == "dmgTrap")
+        //{
+        //    onDamage();
+        //    Invoke("unDamage", 3);
 
-            if (collision.gameObject.name == "wRabbit")
-            {
-                bounce(collision.transform.position);
-            }
-        }
+        //    if (collision.gameObject.name == "wRabbit")
+        //    {
+        //        bounce(collision.transform.position);
+        //    }
+        //}
 
         // ´«µ¢ÀÌ¿¡ µµÂø
         if (collision.gameObject.tag == "Finish")
@@ -265,35 +265,35 @@ public class playerController : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "snowduck")
-        {
-            tmpTime += Time.deltaTime;
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "snowduck")
+    //    {
+    //        tmpTime += Time.deltaTime;
 
           
-            if (tmpTime >= 1.5f)
-            {
-                movement = true;
-                playerRender.color = new Color(1, 1, 1, 1);
-            }
-            else
-            {
-                movement = false;
-                playerRigidbody.velocity = new Vector2(0, 0);
-                playerRender.color = new Color(1, 1, 1, 0);
-                transform.position = collision.transform.position;
-            }
-        }
-    }
+    //        if (tmpTime >= 1.5f)
+    //        {
+    //            movement = true;
+    //            playerRender.color = new Color(1, 1, 1, 1);
+    //        }
+    //        else
+    //        {
+    //            movement = false;
+    //            playerRigidbody.velocity = new Vector2(0, 0);
+    //            playerRender.color = new Color(1, 1, 1, 0);
+    //            transform.position = collision.transform.position;
+    //        }
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "snowduck")
-        {
-            tmpTime = 0;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "snowduck")
+    //    {
+    //        tmpTime = 0;
+    //    }
+    //}
 
 
 
@@ -381,12 +381,12 @@ public class playerController : MonoBehaviour
     }
    
 
-    private void bounce(Vector2 enemyPos)
-    {
-        int dirc = enemyPos.x - transform.position.x < 0 ? 1 : -1;
-        playerRigidbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+    //public void bounce(Vector2 enemyPos)
+    //{
+    //    int dirc = enemyPos.x - transform.position.x < 0 ? 1 : -1;
+    //    playerRigidbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
 
-    }
+    //}
     //µ¥¹ÌÁö ÀÔÀ»¶§ ±ôºý°Å¸®±â
     public void onDamage()
     {
