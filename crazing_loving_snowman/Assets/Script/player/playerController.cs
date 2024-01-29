@@ -55,7 +55,7 @@ public class playerController : MonoBehaviour
         playerRender = GetComponent<SpriteRenderer>();
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1; //클리어 시 해금되는 씬 번호
         gameOver = false;
-        hp = 50;
+        hp = 1;
         pos = playerTrans.position.x;
         interval = 1;
         vis = true;

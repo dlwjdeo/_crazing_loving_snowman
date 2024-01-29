@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//»ç¿ë x
 public class ImageChange : MonoBehaviour
 {
     public GameObject after;
 
     private Transform afterTransform;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +20,7 @@ public class ImageChange : MonoBehaviour
     private void changeObject()
     {
         Vector3 vec = gameObject.transform.position;
-        Instantiate(after, vec, Quaternion.identity);
+        Instantiate(after, vec, Quaternion.identity);       
         Destroy(gameObject);
     }
 }

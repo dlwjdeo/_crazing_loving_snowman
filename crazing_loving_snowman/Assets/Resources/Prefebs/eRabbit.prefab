@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1862562252573154986}
   - component: {fileID: 1862562252573154989}
-  - component: {fileID: 1992808279994482434}
   - component: {fileID: 1862562252573154987}
   - component: {fileID: 1862562252573154988}
   - component: {fileID: 1862562252573154991}
@@ -30,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862562252573154990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.15, y: -0.59, z: 0}
-  m_LocalScale: {x: 0.8119276, y: 0.821783, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1992808279994482434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862562252573154990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127d5b15779e88740ad183f325a49a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1862562252573154987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f270b7f8681f94c9a0d587b3c482a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  destroyDelay: 0
   nextMove: 2
   h: 10
   rabbitSpeed: 0

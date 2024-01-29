@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3687908382457622113}
   - component: {fileID: 939560855759040584}
   - component: {fileID: 1127496275063422224}
-  - component: {fileID: 3647031228973604607}
+  - component: {fileID: -3189530402129092341}
   m_Layer: 0
   m_Name: "\uBC29\uD5A5_\uC544\uB798"
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449785836316255618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.074443, y: -12.489366, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &3647031228973604607
+--- !u!114 &-3189530402129092341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1449785836316255618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a092b1c323645fa4086b7bf27ee52d50, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d2b1d2918719d84981335226b4e846a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  before: {fileID: 0}
+  damage: 0
+  destroyDelay: 0
+  changeImage: {fileID: 0}

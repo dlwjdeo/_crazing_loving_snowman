@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9b6451ebeb33144bbe3cd2538daf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 790462914}
+  target: {fileID: 790462914}
 --- !u!1 &240418108
 GameObject:
   m_ObjectHideFlags: 0
@@ -57388,7 +57388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9b6451ebeb33144bbe3cd2538daf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 790462914}
+  target: {fileID: 790462914}
 --- !u!4 &1118355042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1424576626658932107, guid: e24fa01a9d291ae4490968c187a572c3, type: 3}
@@ -57466,6 +57466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dd510191ca64a45a02f8cb048920d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  destroyDelay: 0
 --- !u!483693784 &1139975600
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -58149,11 +58151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662573788315799127, guid: 5b690e2deba23ac4a99d046057197516, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.98
+      value: 124.4
       objectReference: {fileID: 0}
     - target: {fileID: 6662573788315799127, guid: 5b690e2deba23ac4a99d046057197516, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.16
+      value: -78.6
       objectReference: {fileID: 0}
     - target: {fileID: 6662573788315799127, guid: 5b690e2deba23ac4a99d046057197516, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58458,6 +58460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3aa7fa49a914854bbc3802c80edaa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  destroyDelay: 0
 --- !u!483693784 &1218125981
 TilemapRenderer:
   m_ObjectHideFlags: 0
