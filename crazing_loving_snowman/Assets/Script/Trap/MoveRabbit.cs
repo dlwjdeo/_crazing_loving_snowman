@@ -61,7 +61,7 @@ public class MoveRabbit : Trap
             if (gameObject.CompareTag("wRabbit"))
             {
                 Damage(Player);
-                bounce(Player);
+                Player.bounce(gameObject.transform.position);
             }
             else
             {
@@ -93,12 +93,10 @@ public class MoveRabbit : Trap
             jumpCount = 0;
         }
     }
-    private void bounce(playerController Player)
+   
+    private void Steal(playerController Player)
     {
-        int dirc = transform.position.x - Player.transform.position.x < 0 ? 1 : -1;
-        Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
-
+        //Player.FaceUI.FaceScoreData;
     }
-    
 
 }

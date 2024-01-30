@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4909919014569417055}
   - component: {fileID: 5849040474100316491}
-  - component: {fileID: 1085635525688496414}
   - component: {fileID: 3939207309789195346}
+  - component: {fileID: -5432733684949381851}
   m_Layer: 0
   m_Name: "\uBC84\uC12F\uBC1C\uD310_\uBE44\uD65C\uC131\uD654"
   m_TagString: Untagged
@@ -84,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1085635525688496414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9087007681478879476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ddf22a16a8097c4e981e374bb65935c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stool: {fileID: 636297373329312827, guid: bc7cc83bb5e0e0b4cb0b86636ef57893, type: 3}
 --- !u!61 &3939207309789195346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,3 +110,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 0.2353363}
   m_EdgeRadius: 0
+--- !u!114 &-5432733684949381851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087007681478879476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308e9d666e89656419e67400ef7aa187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  destroyDelay: 0
+  mushroom: {fileID: 2325349168127151020, guid: d072b98f7cce3bd4eb7ea40b6eda243e, type: 3}
+  stool: {fileID: 21300000, guid: 37cc19eba117bf648b3159bdf7fe554d, type: 3}

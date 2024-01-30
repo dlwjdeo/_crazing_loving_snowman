@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
-    public Rigidbody2D playerRigidbody;
+    private Rigidbody2D playerRigidbody;
+    public Rigidbody2D PlayerRigidbody { get => playerRigidbody; }
     private Transform playerTrans;
     public SpriteRenderer playerRender;
     public GameObject ClearPanel;
@@ -37,6 +38,7 @@ public class playerController : MonoBehaviour
     public bool Lscoop;
     public bool Rscoop;
     public bool movement;
+    
     public float tmpTime;
     private float scale;
     private float plusHp;
@@ -45,6 +47,7 @@ public class playerController : MonoBehaviour
 
 
     [SerializeField] private FaceUI faceUI;
+    public FaceUI FaceUI { get => faceUI; }
     [SerializeField] private List<FaceData> nullData = new List<FaceData>();
     private int startIndex;
     // Start is called before the first frame update
@@ -193,24 +196,24 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "dmgTrap")
-        //{
-        //    onDamage();
-        //    Invoke("unDamage", 3);
+        //´«ÄÚÀÔ È¹µæ
+        if (collision.gameObject.tag == "Face")
+        {
 
-        //    if (collision.gameObject.name == "wRabbit")
-        //    {
-        //        bounce(collision.transform.position);
-        //    }
-        //}
+            Face face = collision.GetComponent<Face>();
+            faceUI.FaceScoreData.Add(face.FaceData);
+            faceUI.AcquireItem(face, 1);
+            faceUI.ScoreChange(face);
+            Destroy(collision.gameObject);
 
+        }
         // ´«µ¢ÀÌ¿¡ µµÂø
         if (collision.gameObject.tag == "Finish")
         {
             UIPanel.SetActive(false);
             ClearPanel.SetActive(true);
 
-            
+
             if (faceUI.FaceScoreData.Faces.Count < startIndex + 3)
             {
                 while (faceUI.FaceScoreData.Faces.Count < startIndex + 3)
@@ -234,6 +237,17 @@ public class playerController : MonoBehaviour
             }
         }
 
+        //if (collision.gameObject.tag == "dmgTrap")
+        //{
+        //    onDamage();
+        //    Invoke("unDamage", 3);
+
+        //    if (collision.gameObject.name == "wRabbit")
+        //    {
+        //        bounce(collision.transform.position);
+        //    }
+        //}
+
         //if (collision.gameObject.tag == "snowduck")
         //{
         //    hp = hp - 15;
@@ -246,16 +260,7 @@ public class playerController : MonoBehaviour
         }
 
         
-        if (collision.gameObject.tag == "Face") //´«ÄÚÀÔ È¹µæ
-        {
-           
-            Face face = collision.GetComponent<Face>();
-            faceUI.FaceScoreData.Add(face.FaceData);
-            faceUI.AcquireItem(face,1);
-            faceUI.ScoreChange(face);
-            Destroy(collision.gameObject);
-
-        }
+        
         if (collision.gameObject.tag == "Mushroom")
         {
             movement = false;
@@ -298,9 +303,9 @@ public class playerController : MonoBehaviour
 
 
 
-    private void playerMove()
+    public void playerMove(bool move)
     {
-        movement = true;
+        movement = move;
     }
 
     private void playerScale() // ´«µ¢ÀÌ ±¼¸®¸é Å©±â Ä¿Áü
@@ -379,21 +384,21 @@ public class playerController : MonoBehaviour
 
         }
     }
-   
 
-    //public void bounce(Vector2 enemyPos)
-    //{
-    //    int dirc = enemyPos.x - transform.position.x < 0 ? 1 : -1;
-    //    playerRigidbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
 
-    //}
-    //µ¥¹ÌÁö ÀÔÀ»¶§ ±ôºý°Å¸®±â
-    public void onDamage()
+    public void bounce(Vector2 enemyPos)
     {
-        gameObject.layer = 7;
-        Dmg = true;
-        StartCoroutine(unDamage());
+        int dirc = enemyPos.x - transform.position.x < 0 ? 1 : -1;
+        playerRigidbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+
     }
+    //µ¥¹ÌÁö ÀÔÀ»¶§ ±ôºý°Å¸®±â
+    //private void onDamage()
+    //{
+    //    gameObject.layer = 7;
+    //    Dmg = true;
+    //    StartCoroutine(unDamage());
+    //}
     private IEnumerator unDamage()
     {
         yield return new WaitForSeconds(3.0f);
@@ -434,7 +439,13 @@ public class playerController : MonoBehaviour
     }
    
 
-
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        gameObject.layer = 7;
+        Dmg = true;
+        StartCoroutine(unDamage());
+    }
 }
 
 

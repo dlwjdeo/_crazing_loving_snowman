@@ -51,7 +51,7 @@ public class snowduckcontroller : Trap
         yield return new WaitForSeconds(2.1f);
 
         collision.GetComponent<playerController>().tmpTime = 0;
-        collision.GetComponent<playerController>().movement = true;
+        collision.GetComponent<playerController>().playerMove(true);
         collision.GetComponent<playerController>().playerRender.color = new Color(1, 1, 1, 1);
         collision.transform.position = new Vector2(transform.position.x, transform.position.y+3.0f);
         
@@ -70,7 +70,7 @@ public class snowduckcontroller : Trap
                 sdAnimation.SetBool("close", true);
 
                 collision.GetComponent<playerController>().movement = false;
-                collision.GetComponent<playerController>().playerRigidbody.velocity = new Vector2(0, 0);
+                collision.GetComponent<playerController>().PlayerRigidbody.velocity = new Vector2(0, 0);
                 collision.GetComponent<playerController>().playerRender.color = new Color(1, 1, 1, 0);
                 collision.transform.position = transform.position;
                 

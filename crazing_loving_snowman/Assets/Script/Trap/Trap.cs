@@ -19,8 +19,7 @@ public class Trap : MonoBehaviour
     }
     protected void Damage(playerController Player) //플레이어에게 데미지
     {
-        Player.hp -= damage;
-        Player.onDamage();
+        Player.TakeDamage(damage);
 
     }
     virtual public void Effect(playerController Player)

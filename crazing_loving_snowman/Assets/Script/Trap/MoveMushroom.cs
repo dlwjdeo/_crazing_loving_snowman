@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMushroom : MonoBehaviour
+public class MoveMushroom : Trap
 {
     Rigidbody2D rigid;
     public Transform target;
@@ -12,7 +12,7 @@ public class MoveMushroom : MonoBehaviour
     public Transform player;
     private Vector2 bottomVec;
 
-    private void Start()
+    override public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rigid = GetComponent<Rigidbody2D>();
@@ -35,12 +35,20 @@ public class MoveMushroom : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    override public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            
+            playerController Player = collision.GetComponent<playerController>();
+            StartCoroutine(StopMove(Player));
             Destroy(gameObject);
         }
+    }
+    private IEnumerator StopMove(playerController Player)
+    {
+        yield return new WaitForSeconds(5.0f);
+        Player.playerMove(false);
+
+
     }
 }
