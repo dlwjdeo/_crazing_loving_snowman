@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class snowduckcontroller : Trap
+public class SnowDuckController : Trap
 {
     private Animator sdAnimation;
     private CircleCollider2D sdCollider;
@@ -50,9 +50,9 @@ public class snowduckcontroller : Trap
     {
         yield return new WaitForSeconds(2.1f);
 
-        collision.GetComponent<playerController>().tmpTime = 0;
-        collision.GetComponent<playerController>().playerMove(true);
-        collision.GetComponent<playerController>().playerRender.color = new Color(1, 1, 1, 1);
+        Player.tmpTime = 0;
+        Player.playerMove(true);
+        Player.playerRender.color = new Color(1, 1, 1, 1);
         collision.transform.position = new Vector2(transform.position.x, transform.position.y+3.0f);
         
        
@@ -69,9 +69,9 @@ public class snowduckcontroller : Trap
             {
                 sdAnimation.SetBool("close", true);
 
-                collision.GetComponent<playerController>().movement = false;
-                collision.GetComponent<playerController>().PlayerRigidbody.velocity = new Vector2(0, 0);
-                collision.GetComponent<playerController>().playerRender.color = new Color(1, 1, 1, 0);
+                Player.movement = false;
+                Player.PlayerRigidbody.velocity = new Vector2(0, 0);
+                Player.playerRender.color = new Color(1, 1, 1, 0);
                 collision.transform.position = transform.position;
                 
             }
@@ -92,12 +92,12 @@ public class snowduckcontroller : Trap
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Damage(collision.GetComponent<playerController>());
+            Damage();
             sdAnimation.SetBool("colli", false);
             coldown = true;
             collitimer = 0;
             sdCollider.enabled = false;
-            collision.GetComponent<playerController>().tmpTime = 0;
+            Player.tmpTime = 0;
         }
     }
 

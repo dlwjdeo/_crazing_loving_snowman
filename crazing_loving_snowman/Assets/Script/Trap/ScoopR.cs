@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//»ç¿ëx
 public class ScoopR : MonoBehaviour
 {
     private Rigidbody2D rigidBody2D;

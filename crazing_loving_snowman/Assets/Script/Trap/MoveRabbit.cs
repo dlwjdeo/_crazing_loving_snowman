@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MoveRabbit : Trap
 {
     Rigidbody2D rigid;
@@ -56,16 +56,15 @@ public class MoveRabbit : Trap
         StartCoroutine("jumpRabbit");
         turnDirection();
         if (collision.gameObject.CompareTag("Player"))
-        {
-            playerController Player = collision.gameObject.GetComponent<playerController>();
+        {    
             if (gameObject.CompareTag("wRabbit"))
             {
-                Damage(Player);
+                Damage();
                 Player.bounce(gameObject.transform.position);
             }
             else
             {
-
+                Steal();
             }
         }
 
@@ -94,9 +93,15 @@ public class MoveRabbit : Trap
         }
     }
    
-    private void Steal(playerController Player)
+    private void Steal()
     {
-        //Player.FaceUI.FaceScoreData;
+        if (Player.FaceUI.FaceScoreData.Faces != null)
+        {
+            int random = Random.Range(0, 2);
+            int index = Player.FaceUI.FaceScoreData.Faces.FindIndex(face => face.FaceType == random && face.StageNum == SceneManager.GetActiveScene().buildIndex - 2);
+
+            Player.FaceUI.FaceScoreData.Faces.Remove(Player.FaceUI.FaceScoreData.Faces[index]);
+        }
     }
 
 }

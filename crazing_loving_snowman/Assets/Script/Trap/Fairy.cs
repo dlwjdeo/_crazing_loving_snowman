@@ -15,7 +15,7 @@ public class Fairy : Trap
     //    }
     //}
 
-    override public void Effect(playerController Player)
+    override public void Effect()
     {
         Player.hp = hp;
     }

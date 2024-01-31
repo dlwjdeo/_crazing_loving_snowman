@@ -14,6 +14,8 @@ TagManager:
   - wRabbit
   - eRabbit
   - Face
+  - R
+  - L
   layers:
   - Default
   - TransparentFX

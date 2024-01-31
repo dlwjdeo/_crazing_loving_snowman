@@ -17,12 +17,12 @@ public class Dummy : Trap
     //    }
     //}
 
-    override public void Effect(playerController Player)
+    override public void Effect()
     {
         StartCoroutine(Destroy());
     }
-    override public void OnTriggerEnter2D(Collider2D collision)
-    {
+    //override public void OnTriggerEnter2D(Collider2D collision)
+    //{
 
-    }
+    //}
 }

@@ -6,6 +6,7 @@ public class Trap : MonoBehaviour
 {
     [SerializeField] protected int damage;
     [SerializeField] private float destroyDelay;
+    protected playerController Player;
     // Start is called before the first frame update
     virtual public void Start()
     {
@@ -17,12 +18,12 @@ public class Trap : MonoBehaviour
     {
         
     }
-    protected void Damage(playerController Player) //플레이어에게 데미지
+    protected void Damage() //플레이어에게 데미지
     {
         Player.TakeDamage(damage);
 
     }
-    virtual public void Effect(playerController Player)
+    virtual public void Effect()
     {
         
     }
@@ -36,10 +37,10 @@ public class Trap : MonoBehaviour
         Debug.Log("trigger");
         if(collision.gameObject.CompareTag("Player"))
         {
-            playerController Player = collision.GetComponent<playerController>();
-            Effect(Player);
+            Player = collision.GetComponent<playerController>();
+            Effect();
             if (damage != 0)
-            { Damage(Player); }
+            { Damage(); }
             
             
         }
@@ -49,10 +50,10 @@ public class Trap : MonoBehaviour
         Debug.Log("collision");
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerController Player = collision.gameObject.GetComponent<playerController>();
-            Effect(Player);
+            Player = collision.gameObject.GetComponent<playerController>();
+            Effect();
             if (damage != 0)
-            { Damage(Player); }
+            { Damage(); }
             
 
         }

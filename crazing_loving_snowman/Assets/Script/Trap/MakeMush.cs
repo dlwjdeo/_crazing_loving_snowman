@@ -20,7 +20,7 @@ public class MakeMush : Trap
     //    Instantiate(mushroom, vec, Quaternion.identity);
     //}
 
-    public override void Effect(playerController Player)
+    public override void Effect()
     {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().sprite = stool;

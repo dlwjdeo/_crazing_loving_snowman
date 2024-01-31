@@ -25,7 +25,7 @@ public class RotateSign : Trap
     //    Invoke("rotate", 1f);
 
     //}
-    public override void Effect(playerController Player)
+    public override void Effect()
     {
         StartCoroutine("ChageImage");
     }

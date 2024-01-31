@@ -39,7 +39,7 @@ public class UpTrigger : Trap
         up = true;
     }
 
-    override public void Effect(playerController Player)
+    override public void Effect()
     {
         StartCoroutine("upTrigger");
     }

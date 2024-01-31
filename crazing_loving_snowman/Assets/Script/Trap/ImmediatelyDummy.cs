@@ -17,7 +17,7 @@ public class ImmediatelyDummy : Trap
     //        Invoke("destroy", destroyTimeI * 1f);
     //    }
     //}
-    override public void Effect(playerController Player)
+    override public void Effect()
     {
         StartCoroutine(Destroy());
     }

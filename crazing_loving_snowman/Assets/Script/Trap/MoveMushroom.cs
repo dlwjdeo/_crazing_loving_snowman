@@ -35,17 +35,22 @@ public class MoveMushroom : Trap
         }
     }
 
-    override public void OnTriggerEnter2D(Collider2D collision)
+    //override public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+            
+    //        StartCoroutine(StopMove());
+    //        Destroy(gameObject);
+    //    }
+    //}
+    public override void Effect()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            playerController Player = collision.GetComponent<playerController>();
-            StartCoroutine(StopMove(Player));
-            Destroy(gameObject);
-        }
+        StartCoroutine(StopMove());
     }
-    private IEnumerator StopMove(playerController Player)
+    private IEnumerator StopMove()
     {
+        Destroy(gameObject);
         yield return new WaitForSeconds(5.0f);
         Player.playerMove(false);
 

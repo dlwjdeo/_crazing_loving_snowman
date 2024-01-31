@@ -42,7 +42,7 @@ public class icicle : Trap
     //    }
     //}
     
-    override public void Effect(playerController Player)
+    override public void Effect()
     {
         Instantiate(ic, new Vector3(-88.78f,-50,0), Quaternion.Euler(180, 0, 0));
         Instantiate(ic, new Vector3(-83.735f, -50,0), Quaternion.Euler(180, 0, 0));
