@@ -5,42 +5,71 @@ using UnityEngine;
 public class SnowSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject snowPrefab;
-
-    public bool falling = true;
+    private GameObject[] snowPrefab;
+    [SerializeField]
+    private int num;
+   public bool falling = true;
     public bool startFalling = true;
     public Transform spawnerPosition;
 
-    void Update()
+    //void Update()
+    //{
+    //    if (falling)
+    //    {
+    //        falling = false;
+    //        StartCoroutine(fallingDelay());
+    //    }
+    //}
+
+
+    //IEnumerator fallingDelay()
+    //{
+    //    while (startFalling)
+    //    {
+    //        yield return new WaitForSeconds(0.5f);
+    //        Instantiate(snowPrefab, spawnerPosition.position,spawnerPosition.rotation);
+
+    //    }
+    //}
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.name == "startfalling")
+    //    {
+    //        startFalling = true;
+    //        falling = true;
+    //    }
+
+    //    if (collision.gameObject.name == "endfalling")
+    //    {
+    //        startFalling = false;
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (falling)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            falling = false;
-            StartCoroutine(fallingDelay());
+            Spawn();
         }
     }
-
-    IEnumerator fallingDelay()
+    Vector2 SpawnPosition()
     {
-        while (startFalling)
-        {
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(snowPrefab, spawnerPosition.position,spawnerPosition.rotation);
+        
+        float x = Random.Range(gameObject.transform.position.x - 4, transform.position.x + 4);
+        Vector2 position = new Vector2(x, gameObject.transform.position.y);
 
-        }
+        return position;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void Spawn()
+    { 
+        for (int i = 0; i < num; i++)
+            randomspawn();
+    }
+    void randomspawn()
     {
-        if (collision.gameObject.name == "startfalling")
-        {
-            startFalling = true;
-            falling = true;
-        }
-
-        if (collision.gameObject.name == "endfalling")
-        {
-            startFalling = false;
-        }
+        int random = Random.Range(0, 2);
+        Instantiate(snowPrefab[random], SpawnPosition(), Quaternion.identity);
     }
 }
