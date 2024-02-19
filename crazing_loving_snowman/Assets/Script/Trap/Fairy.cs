@@ -17,6 +17,6 @@ public class Fairy : Trap
 
     override public void Effect()
     {
-        Player.hp = hp;
+        Player.ChangeHp(hp);
     }
 }

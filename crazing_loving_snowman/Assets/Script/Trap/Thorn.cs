@@ -11,7 +11,7 @@ public class Thorn : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             playerController call = GameObject.Find("Player").GetComponent<playerController>();
-            call.hp = call.hp - 100;
+            //call.hp = call.hp - 100;
         }
     }
 }

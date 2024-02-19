@@ -24,7 +24,7 @@ public class playerController : MonoBehaviour
     public Image NextStage;
     public int nextSceneLoad;
     public bool gameOver;
-    public float hp;
+    private float hp;
     private float pos;
     private bool Dmg;
     private float interval;
@@ -445,6 +445,11 @@ public class playerController : MonoBehaviour
         gameObject.layer = 7;
         Dmg = true;
         StartCoroutine(unDamage());
+    }
+
+    public void ChangeHp(int Hp)
+    {
+        hp = Hp;
     }
 }
 
