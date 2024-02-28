@@ -41,8 +41,11 @@ public class SnowDuckController : Trap
     }
     override public void OnTriggerEnter2D(Collider2D collision)
     {
-
-        sdAnimation.SetBool("colli", true);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player = collision.GetComponent<playerController>();
+        }
+            sdAnimation.SetBool("colli", true);
 
        
     }
@@ -50,8 +53,8 @@ public class SnowDuckController : Trap
     {
         yield return new WaitForSeconds(2.1f);
 
-        Player.tmpTime = 0;
-        Player.playerMove(true);
+        Player.ChangeTmpTime(0);
+        Player.PlayerMove(true);
         Player.playerRender.color = new Color(1, 1, 1, 1);
         collision.transform.position = new Vector2(transform.position.x, transform.position.y+3.0f);
         
@@ -69,7 +72,7 @@ public class SnowDuckController : Trap
             {
                 sdAnimation.SetBool("close", true);
 
-                Player.movement = false;
+                Player.PlayerMove(false);
                 Player.PlayerRigidbody.velocity = new Vector2(0, 0);
                 Player.playerRender.color = new Color(1, 1, 1, 0);
                 collision.transform.position = transform.position;
@@ -97,7 +100,7 @@ public class SnowDuckController : Trap
             coldown = true;
             collitimer = 0;
             sdCollider.enabled = false;
-            Player.tmpTime = 0;
+            Player.ChangeTmpTime(0);
         }
     }
 

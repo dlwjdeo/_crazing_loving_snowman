@@ -52,7 +52,7 @@ public class MoveMushroom : Trap
     {
         Destroy(gameObject);
         yield return new WaitForSeconds(5.0f);
-        Player.playerMove(false);
+        Player.PlayerMove(false);
 
 
     }

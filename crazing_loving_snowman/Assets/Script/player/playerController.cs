@@ -24,7 +24,7 @@ public class playerController : MonoBehaviour
     public Image NextStage;
     public int nextSceneLoad;
     public bool gameOver;
-    private float hp;
+    [SerializeField] private float hp;
     private float pos;
     private bool Dmg;
     private float interval;
@@ -39,7 +39,8 @@ public class playerController : MonoBehaviour
     public bool Rscoop;
     public bool movement;
     
-    public float tmpTime;
+    private float tmpTime;
+    
     private float scale;
     private float plusHp;
     private float zInput;
@@ -95,7 +96,7 @@ public class playerController : MonoBehaviour
         {
             invisible();
         }
-        playerScale();
+        PlayerScale();
 
         if (hp <= 0)
         {
@@ -303,12 +304,12 @@ public class playerController : MonoBehaviour
 
 
 
-    public void playerMove(bool move)
+    public void PlayerMove(bool move)
     {
         movement = move;
     }
 
-    private void playerScale() // 传耽捞 奔府搁 农扁 目咙
+    private void PlayerScale() // 传耽捞 奔府搁 农扁 目咙
     {
         if (hp < 24)
         {
@@ -450,6 +451,10 @@ public class playerController : MonoBehaviour
     public void ChangeHp(int Hp)
     {
         hp = Hp;
+    }
+    public void ChangeTmpTime(float tmp)
+    {
+        tmpTime = tmp;
     }
 }
 
